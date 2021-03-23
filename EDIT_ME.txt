@@ -1,3 +1,7 @@
 Add your name here and commit so we know your git is all set up
 Demetri nekos
+<<<<<<< HEAD
 Isaac Herbst
+=======
+Ev Hintz
+>>>>>>> 2161cde614cd1ff87fef76015ff21d609630d1f8
