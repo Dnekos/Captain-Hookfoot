@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum InventoryItems
+public enum InventoryItem
 {
     None = -1,
     Key
@@ -11,9 +11,9 @@ public enum InventoryItems
 public class PickupNode : ClickableNode
 {
     [SerializeField]
-    InventoryItems data;
+    InventoryItem data;
 
-    override public void Interact(Actions action, InventoryItems item)
+    override public void Interact(Actions action, InventoryItem item)
     {
         if (action == Actions.Interact)
         {
