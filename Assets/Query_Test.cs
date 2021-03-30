@@ -11,7 +11,7 @@ public class Query_Test : MonoBehaviour
     {
 
         // Create database
-        string connection = "URI=file:" + Application.dataPath + "/" + "MegMart.db";
+        string connection = "URI=file:" + Application.dataPath + "/" + "Project3.db";
         Debug.Log(connection);
 
         // Open connection
