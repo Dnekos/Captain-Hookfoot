@@ -15,10 +15,17 @@ public class PickupNode : ClickableNode
 
     override public void Interact(Actions action, InventoryItem item)
     {
-        if (action == Actions.Interact)
+        switch (action)
         {
-            Player.instance.AddInvItem(data);
-            Destroy(gameObject);
+            case Actions.Interact:
+                Player.instance.AddInvItem(data);
+                Destroy(gameObject);
+                break;
+            case Actions.Look:
+                LookAt();
+                break;
+            case Actions.UseItem:
+                break;
         }
     }
 }
