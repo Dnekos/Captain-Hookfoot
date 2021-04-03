@@ -61,8 +61,6 @@ public class InteractableNode : ClickableNode
         }
     }
 #endif
-    [SerializeField]
-    int state = 0;
     int maxstate; // prevents changing state when at last state
     [SerializeField]
     StateChange[] ChangeConditions; // lists conditional data to move on to next state
@@ -78,13 +76,23 @@ public class InteractableNode : ClickableNode
 
     override public void LookAt()
     {
-
+        base.LookAt();
+        checkStateCondition(Actions.Look);
     }
-    override public void Interact(Actions action, InventoryItem item)
+    override public void Interact(InventoryItem item)
     {
-        if(state < maxstate)
-            if (ChangeConditions[state].ConditionMet(action,item))
-                    AdvanceState();
+        base.Interact(item);
+
+        if (item == InventoryItem.None)
+            checkStateCondition(Actions.Interact);
+        else
+            checkStateCondition(Actions.UseItem, item);
+    }
+    void checkStateCondition(Actions action, InventoryItem item = InventoryItem.None)
+    {
+        if (state < maxstate)
+            if (ChangeConditions[state].ConditionMet(action, item))
+                AdvanceState();
     }
     void AdvanceState()
     {

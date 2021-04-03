@@ -13,19 +13,10 @@ public class PickupNode : ClickableNode
     [SerializeField]
     InventoryItem data;
 
-    override public void Interact(Actions action, InventoryItem item)
+    override public void Interact(InventoryItem item)
     {
-        switch (action)
-        {
-            case Actions.Interact:
-                Player.instance.AddInvItem(data);
-                Destroy(gameObject);
-                break;
-            case Actions.Look:
-                LookAt();
-                break;
-            case Actions.UseItem:
-                break;
-        }
+        base.Interact(item); // do dialogue
+        Player.instance.AddInvItem(data);
+        Destroy(gameObject);
     }
 }

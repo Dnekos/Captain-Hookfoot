@@ -5,21 +5,32 @@ using UnityEngine.EventSystems;
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler
 {
-    public virtual void Interact(Actions action, InventoryItem item)
+    [SerializeField]
+    protected int state = 0;
+    int UID;
+
+    public KeyValuePair<int,int> getStatePair()
     {
-        Debug.Log("clicked"); // unused definition as this is the base class
+        return new KeyValuePair<int, int>(UID, state);
+    }
+
+    public virtual void Interact(InventoryItem item)
+    {
+        Debug.Log("clicked"); // get dialogue
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
             LookAt(); // TEMP: right click looks
-
-        // interact, using the subclasses definitions
-        Interact(Player.instance.GetAction(), Player.instance.GetHeldItem());
-
-        // reset actions to default
-        if (Player.instance.GetAction() != Actions.Interact)
-            Player.instance.SetAction(Actions.Interact);
+        else if (eventData.button == PointerEventData.InputButton.Left && Player.instance.GetHeldItem() == InventoryItem.None)
+            Interact(Player.instance.GetHeldItem());
+        else
+        {
+            Interact(Player.instance.GetHeldItem());
+            // reset actions to default
+            if (Player.instance.GetAction() != Actions.Interact)
+                Player.instance.SetAction(Actions.Interact);
+        }
     }
     public virtual void LookAt()
     {
