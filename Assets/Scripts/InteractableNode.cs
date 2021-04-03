@@ -76,6 +76,10 @@ public class InteractableNode : ClickableNode
         maxstate = ChangeConditions.Length;
     }
 
+    override public void LookAt()
+    {
+
+    }
     override public void Interact(Actions action, InventoryItem item)
     {
         if(state < maxstate)

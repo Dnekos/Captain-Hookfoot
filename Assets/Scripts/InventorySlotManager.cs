@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventorySlotManager : MonoBehaviour
+public class InventorySlotManager : ClickableNode
 {
     public int index = -1;
-    public void OnInventoryClick()
+    public override void Interact(Actions action, InventoryItem item)
     {
-        Player.instance.SetAction(Actions.UseItem, index);
+        Debug.Log("clicked");
+        if(Player.instance.GetAction() == Actions.Interact)
+            Player.instance.SetAction(Actions.UseItem, index);
+        else if (Player.instance.GetAction() == Actions.UseItem)
+        {
+            // CHECK IF THEY ARE COMPATIBLE, PERHAPS USE A DATABASE
+        }
+
+    }
+    public void OnInventoryLook()
+    {
+
     }
 }
