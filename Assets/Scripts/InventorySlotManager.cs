@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InventorySlotManager : ClickableNode
 {
-    public int index = -1;
+    public InventoryItem invItem = InventoryItem.None;
     public override void Interact(InventoryItem item)
     {
         Debug.Log("clicked");
         if(item == InventoryItem.None)
-            Player.instance.SetAction(Actions.UseItem, index);
+            Player.instance.SetAction(Actions.UseItem, invItem);
         else if (Player.instance.GetAction() == Actions.UseItem)
         {
             base.Interact(item);

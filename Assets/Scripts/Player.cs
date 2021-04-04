@@ -6,9 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player instance = null;
-    List<InventoryItem> inv;
     [SerializeField]
-    int heldIndex = -1;
+    InventoryItem heldItem;
     [SerializeField]
     Actions currentAction = Actions.Interact;
 
@@ -23,44 +22,38 @@ public class Player : MonoBehaviour
             return;
         }
 
-        inv = new List<InventoryItem>();
         DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
     }
-    public List<InventoryItem> GetInventory()
+    /*public List<InventoryItem> GetInventory()
     {
         return inv;
-    }
+    }*/
 
     public void AddInvItem(InventoryItem item)
     {
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(item, inv.Count); // create UI object
-        inv.Add(item); // add item to inventory list
+        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(item); // create UI object
     }
     public void RemoveInvItem(InventoryItem item)
     {
         Debug.Log("Removing " + item + " from inventory");
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().RemoveInventoryImage(heldIndex); // delete UI object
+        GameObject.Find("InventoryMenu").GetComponent<UIManager>().RemoveInventoryImage(item); // delete UI object
 
-        if (item == inv[heldIndex]) // reset heldIndex (may be redundant?)
-            heldIndex = -1;
-
-        inv.Remove(item); // remove item from list
+        if (item == heldItem) // reset heldIndex (may be redundant?)
+            heldItem = InventoryItem.None;
     }
     public InventoryItem GetHeldItem()
     {
-        if (heldIndex == -1) // prevent errors if not holding an item
-            return InventoryItem.None;
-        return inv[heldIndex];
+        return heldItem;
     }
 
     public Actions GetAction()
     {
         return currentAction;
     }
-    public void SetAction(Actions newaction, int index = -1)
+    public void SetAction(Actions newaction, InventoryItem item = InventoryItem.None)
     {
         Debug.Log("Current action is now " + newaction);
-        instance.heldIndex = index;
+        instance.heldItem = item;
         instance.currentAction = newaction;
     }
 }
