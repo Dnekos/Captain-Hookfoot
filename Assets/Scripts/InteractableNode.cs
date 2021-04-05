@@ -37,7 +37,7 @@ public class InteractableNode : ClickableNode
         }
         public void StateChangeEffect()
         {
-
+            m_OnChange.Invoke();
         }
     };
 #if UNITY_EDITOR
@@ -63,13 +63,14 @@ public class InteractableNode : ClickableNode
                     contentPosition.width *= 0.4f;
                     EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sAction"), GUIContent.none);
                     contentPosition.x += contentPosition.width;
-                    contentPosition.width *= 0.45f / 0.4f;
+                    contentPosition.width *= 0.42f / 0.4f;
                     EditorGUIUtility.labelWidth = 25f;
                     EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sItem"), new GUIContent("Item"));
                     contentPosition.x += contentPosition.width;
-                    contentPosition.width *= 0.15f / 0.4f;
+                    contentPosition.width *= 0.18f / 0.4f;
+                    contentPosition.height -= 100;
                     EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sRemoveItem"), new GUIContent("Rem"));
-
+                    contentPosition.height += 100;
                     break;
                 default: // only show action as the item is irrelevant
                     EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sAction"), GUIContent.none);
@@ -78,8 +79,9 @@ public class InteractableNode : ClickableNode
             contentPosition.x = startingx;
             contentPosition.width = startingwidth;
             contentPosition.y += 20;
-            //contentPosition.height += 30;
             EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("m_OnChange"), new GUIContent("OnChange"));
+            //serializedObject.ApplyModifiedProperties();
+
         }
     }
 #endif
@@ -100,11 +102,13 @@ public class InteractableNode : ClickableNode
 
     override public void LookAt()
     {
+        UIManager.SetInventoryState(false);
         base.LookAt();
         checkStateCondition(Actions.Look);
     }
     override public void Interact(InventoryItem item)
     {
+        UIManager.SetInventoryState(false);
         base.Interact(item);
 
         if (item == InventoryItem.None)
@@ -120,11 +124,11 @@ public class InteractableNode : ClickableNode
     }
     void AdvanceState()
     {
+        ChangeConditions[state].StateChangeEffect();
+
         if (ChangeConditions[state].sRemoveItem) // sRemoveItem should only be able to be true if it is an item condition anyway
             Player.instance.RemoveInvItem(Player.instance.GetHeldItem());
         state++;
 
-        stateText.text = gameObject.name + " has advanced to state " + state;
-        Debug.Log(gameObject.name + " has advanced to state " + state);
     }
 }

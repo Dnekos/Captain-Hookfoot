@@ -1,25 +1,26 @@
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
-public enum InventoryItem
+public enum Locations
 {
-    None = -1,
-    Key,
-    Rope
-};
+    WellRoom,
+    Island
+}
 
-public class PickupNode : ClickableNode
+public class LocationNode : ClickableNode
 {
     [SerializeField]
-    InventoryItem data;
+    Locations Destination;
 
     override public void Interact(InventoryItem item)
     {
         UIManager.SetInventoryState(false);
-        base.Interact(item); // do dialogue
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
-        Destroy(gameObject);
+        Player.instance.SaveScene();
+        SceneManager.LoadScene((int)Destination);
     }
     public override void LookAt()
     {

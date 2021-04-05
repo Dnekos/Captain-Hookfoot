@@ -14,12 +14,10 @@ public class UIManager : MonoBehaviour
     RectTransform invPanel;
 
     // inv button
-    bool inventoryopen = false;
+    static bool inventoryopen = false;
     Vector3 startingposition;
 
     // content fitter
-    //[SerializeField]
-    //GameObject SizeHolderPrefab;
     GameObject SizeHolder; // prevents the panel from getting too small
     private void Start()
     {
@@ -47,6 +45,7 @@ public class UIManager : MonoBehaviour
 
     public void AddInventoryImage(InventoryItem data)
     {
+        InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/"+data);
         InventorySlotPrefab.GetComponent<InventorySlotManager>().invItem = data;
         invImages.Add(Instantiate(InventorySlotPrefab, invPanel));
     }
@@ -64,5 +63,9 @@ public class UIManager : MonoBehaviour
     public void openInventory()
     {
         inventoryopen = !inventoryopen;
+    }
+    public static void SetInventoryState(bool open)
+    {
+        inventoryopen = open;
     }
 }

@@ -24,15 +24,12 @@ public class Player : MonoBehaviour
 
         DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
     }
-    /*public List<InventoryItem> GetInventory()
-    {
-        return inv;
-    }*/
 
-    public void AddInvItem(InventoryItem item)
+    public void SaveScene()
     {
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(item); // create UI object
+
     }
+
     public void RemoveInvItem(InventoryItem item)
     {
         Debug.Log("Removing " + item + " from inventory");
