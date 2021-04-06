@@ -1,20 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Data;
+using Mono.Data.Sqlite;
+using System.IO;
 using UnityEngine.EventSystems;
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField]
-    protected int state = 0;
-    int UID;
+string connection;
+    IDbConnection dbcon;
+    IDataReader reader;
+    
+    string dbName = "Project3.db";
 
-    public KeyValuePair<int,int> getStatePair()
+    [SerializeField]
+    int id;
+
+    void OpenDatabase()
     {
-        return new KeyValuePair<int, int>(UID, state);
+
+        // Open connection
+        dbcon.Open();
     }
 
-    public virtual void Interact(InventoryItem item)
+    void InitDatabase()
+    {
+        //Setup file with url
+        connection = "URI=file:" + Application.dataPath + "/" + dbName;
+        dbcon = new SqliteConnection(connection);
+    }
+
+    string FetchTextByID(int id, string term)
+    {
+        // READING DATA
+        // Read and print all values in table
+        dbcon.Open();
+        IDbCommand cmnd_read = dbcon.CreateCommand();
+        string query = "SELECT " + term + " FROM NodeDialogue WHERE ID=" + id;
+        cmnd_read.CommandText = query;
+        reader = cmnd_read.ExecuteReader();
+        string output = reader[0].ToString(); 
+        dbcon.Close();
+        return output;
+    }
+
+    void Start()
+    {
+        InitDatabase();
+    }
+    public virtual void Interact(Actions action, InventoryItem item)
     {
         Debug.Log("clicked"); // get dialogue
     }
@@ -34,7 +69,6 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     }
     public virtual void LookAt()
     {
-    //will run the look functions 
-    //NOTE: Prob should put this in another base class that manages Databasing, so that InventorySlotManager can utilize it despite not needing IpointerClickHandler stuff
+        Debug.Log(FetchTextByID(id, "LookDialogue"));
     }
 }
