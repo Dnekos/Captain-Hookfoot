@@ -12,21 +12,30 @@ public class Player : MonoBehaviour
     Actions currentAction = Actions.Interact;
     Dictionary<NodeIDs, int> loggedStates;
 
+    Controls inputs;
+
     private void Awake()
     {
         // create singletons
         if (instance == null)
-        {
             instance = this;
-            instance.loggedStates = new Dictionary<NodeIDs, int>();
-        }
         else if (instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
+        instance.loggedStates = new Dictionary<NodeIDs, int>();
+        inputs = new Controls();
+        inputs.Game.Exit.performed += ctx => OnExit(); // bind the escape key to the OnExit Function
+
         DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
+    }
+
+    private void OnExit()
+    {
+        Debug.Log("exit");
+        Application.Quit();
     }
 
     public void LogState(NodeIDs node, int state)
@@ -67,5 +76,15 @@ public class Player : MonoBehaviour
         Debug.Log("Current action is now " + newaction);
         instance.heldItem = item;
         instance.currentAction = newaction;
+    }
+
+    //these two are needed for the inputs to work
+    private void OnEnable()
+    {
+        instance.inputs.Game.Enable();
+    }
+    private void OnDisable()
+    {
+        instance.inputs.Game.Disable();
     }
 }

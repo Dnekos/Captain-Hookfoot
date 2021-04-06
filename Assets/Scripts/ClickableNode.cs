@@ -34,6 +34,7 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     {
         //Setup file with url
         connection = "URI=file:" + Application.dataPath + "/" + dbName;
+        Debug.LogError(connection);
         dbcon = new SqliteConnection(connection);
     }
 
