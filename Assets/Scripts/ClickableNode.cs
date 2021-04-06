@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler
 {
-string connection;
+    string connection;
     IDbConnection dbcon;
     IDataReader reader;
     
@@ -16,6 +16,8 @@ string connection;
 
     [SerializeField]
     int id;
+    [SerializeField]
+    protected int state = 0;
 
     void OpenDatabase()
     {
@@ -49,7 +51,7 @@ string connection;
     {
         InitDatabase();
     }
-    public virtual void Interact(Actions action, InventoryItem item)
+    public virtual void Interact(InventoryItem item)
     {
         Debug.Log("clicked"); // get dialogue
     }
