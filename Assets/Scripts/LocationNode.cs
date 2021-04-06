@@ -19,7 +19,6 @@ public class LocationNode : ClickableNode
     override public void Interact(InventoryItem item)
     {
         UIManager.SetInventoryState(false);
-        Player.instance.SaveScene();
         SceneManager.LoadScene((int)Destination);
     }
     public override void LookAt()

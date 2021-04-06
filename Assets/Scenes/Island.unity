@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543df9b908f248b46b29c66e9b177f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 4
   state: 0
   Destination: 0
 --- !u!1 &705507993
@@ -603,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a8307d909b92147a0485999c32f2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 6
   state: 0
   data: 1
 --- !u!61 &2055436883

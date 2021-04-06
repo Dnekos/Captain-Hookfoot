@@ -22,8 +22,8 @@ public class InteractableNode : ClickableNode
         public Actions sAction;
         //item info
         public InventoryItem sItem = InventoryItem.None;
-        public bool sRemoveItem = false;
-
+        public bool sRemoveItem = false; // remove item from inventory when used
+        public bool sRepeatOnSceneEnter = false; // if the OnChange should be called at start
         [SerializeField]
         private UnityEvent m_OnChange = new UnityEvent();
 
@@ -35,7 +35,7 @@ public class InteractableNode : ClickableNode
                 return true;
             return false;
         }
-        public void StateChangeEffect()
+        public void InvokeChange()
         {
             m_OnChange.Invoke();
         }
@@ -80,6 +80,11 @@ public class InteractableNode : ClickableNode
             contentPosition.width = startingwidth;
             contentPosition.y += 20;
             EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("m_OnChange"), new GUIContent("OnChange"));
+            contentPosition.x = 47;
+            contentPosition.height -= 100;
+            EditorGUIUtility.labelWidth = 70f;
+            EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sRepeatOnSceneEnter"), new GUIContent("Run at Start"));
+
             //serializedObject.ApplyModifiedProperties();
 
         }
@@ -98,6 +103,11 @@ public class InteractableNode : ClickableNode
     void Start()
     {
         maxstate = ChangeConditions.Length;
+        
+        state = Player.instance.GetState(UID); // check if this item has had its state changed
+        // check if the current state has a result that is persistent
+        if (state != 0 && ChangeConditions[state - 1].sRepeatOnSceneEnter) 
+            ChangeConditions[state - 1].InvokeChange();
     }
 
     override public void LookAt()
@@ -124,11 +134,12 @@ public class InteractableNode : ClickableNode
     }
     void AdvanceState()
     {
-        ChangeConditions[state].StateChangeEffect();
-
-        if (ChangeConditions[state].sRemoveItem) // sRemoveItem should only be able to be true if it is an item condition anyway
-            Player.instance.RemoveInvItem(Player.instance.GetHeldItem());
+        ChangeConditions[state].InvokeChange(); // activate Event
         state++;
 
+        Player.instance.LogState(UID, state); // log the current state for transitions
+
+        if (ChangeConditions[state - 1].sRemoveItem) // sRemoveItem should only be able to be true if it is an item condition anyway
+            Player.instance.RemoveInvItem(Player.instance.GetHeldItem());
     }
 }

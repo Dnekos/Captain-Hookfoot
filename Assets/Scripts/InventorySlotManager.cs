@@ -16,4 +16,8 @@ public class InventorySlotManager : ClickableNode
             // CHECK IF THEY ARE COMPATIBLE, PERHAPS USE A DATABASE
         }
     }
+    public override void LookAt()
+    {
+        //base.LookAt();
+    }
 }

@@ -6,6 +6,16 @@ using Mono.Data.Sqlite;
 using System.IO;
 using UnityEngine.EventSystems;
 
+public enum NodeIDs
+{
+    Well = 1,
+    Anchor,
+    CaveToIsland,
+    CaveToWell,
+    Lock,
+    Rope
+}
+
 public class ClickableNode : MonoBehaviour, IPointerClickHandler
 {
     string connection;
@@ -15,16 +25,10 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     string dbName = "Project3.db";
 
     [SerializeField]
-    int id;
+    protected NodeIDs UID;
     [SerializeField]
     protected int state = 0;
-
-    void OpenDatabase()
-    {
-
-        // Open connection
-        dbcon.Open();
-    }
+    
 
     void InitDatabase()
     {
@@ -35,6 +39,8 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
 
     string FetchTextByID(int id, string term)
     {
+        InitDatabase();
+
         // READING DATA
         // Read and print all values in table
         dbcon.Open();
@@ -47,14 +53,15 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         return output;
     }
 
-    void Start()
+    public virtual void LookAt()
     {
-        InitDatabase();
+        TextDebug(FetchTextByID((int)UID, "LookDialogue"));
     }
     public virtual void Interact(InventoryItem item)
     {
         Debug.Log("clicked"); // get dialogue
     }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -65,12 +72,13 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         {
             Interact(Player.instance.GetHeldItem());
             // reset actions to default
-            if (Player.instance.GetAction() != Actions.Interact)
+            if (Player.instance.GetAction() != Actions.Interact) // unsure if getaction/setaction are needed
                 Player.instance.SetAction(Actions.Interact);
         }
     }
-    public virtual void LookAt()
+
+    void TextDebug(string text)
     {
-        Debug.Log(FetchTextByID(id, "LookDialogue"));
+        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = text;
     }
 }

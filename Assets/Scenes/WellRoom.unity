@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &86929802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86929803}
+  - component: {fileID: 86929805}
+  - component: {fileID: 86929804}
+  m_Layer: 5
+  m_Name: debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &86929803
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86929802}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1146864602}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -132.4599, y: 213.32172}
+  m_SizeDelta: {x: -264.9198, y: -428.892}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &86929804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86929802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &86929805
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86929802}
+  m_CullTransparentMesh: 1
 --- !u!1 &87325267
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,11 +259,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d7bf712b09db449585ac8d4ab7c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 1
   state: 0
   ChangeConditions:
   - sAction: 0
     sItem: -1
     sRemoveItem: 0
+    sRepeatOnSceneEnter: 1
     m_OnChange:
       m_PersistentCalls:
         m_Calls:
@@ -203,6 +284,7 @@ MonoBehaviour:
   - sAction: 1
     sItem: 1
     sRemoveItem: 0
+    sRepeatOnSceneEnter: 0
     m_OnChange:
       m_PersistentCalls:
         m_Calls:
@@ -406,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543df9b908f248b46b29c66e9b177f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 3
   state: 0
   Destination: 1
 --- !u!1 &688356261
@@ -439,11 +522,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d7bf712b09db449585ac8d4ab7c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 5
   state: 0
   ChangeConditions:
   - sAction: 1
     sItem: 0
     sRemoveItem: 1
+    sRepeatOnSceneEnter: 1
     m_OnChange:
       m_PersistentCalls:
         m_Calls:
@@ -701,6 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543df9b908f248b46b29c66e9b177f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 2
   state: 0
   Destination: 0
 --- !u!212 &786740529
@@ -779,7 +865,7 @@ GameObject:
   - component: {fileID: 792554734}
   - component: {fileID: 792554733}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d7bf712b09db449585ac8d4ab7c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 2
   state: 0
   ChangeConditions: []
   stateText: {fileID: 0}
@@ -1092,6 +1179,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 86929803}
   - {fileID: 1998475354}
   m_Father: {fileID: 792554734}
   m_RootOrder: 0
@@ -1328,6 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543df9b908f248b46b29c66e9b177f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UID: 0
   state: 0
   Destination: 0
 --- !u!212 &1465889411
@@ -1421,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 696027689630117576, guid: 17a4e4d8e93f6da45972dc0fd98e522d, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 696027689630117576, guid: 17a4e4d8e93f6da45972dc0fd98e522d, type: 3}
       propertyPath: m_AnchorMax.x

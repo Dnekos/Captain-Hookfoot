@@ -10,12 +10,16 @@ public class Player : MonoBehaviour
     InventoryItem heldItem;
     [SerializeField]
     Actions currentAction = Actions.Interact;
+    Dictionary<NodeIDs, int> loggedStates;
 
     private void Awake()
     {
         // create singletons
         if (instance == null)
+        {
             instance = this;
+            instance.loggedStates = new Dictionary<NodeIDs, int>();
+        }
         else if (instance != this)
         {
             Destroy(gameObject);
@@ -25,9 +29,20 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
     }
 
-    public void SaveScene()
+    public void LogState(NodeIDs node, int state)
     {
+        if (!loggedStates.ContainsKey(node))
+            loggedStates.Add(node, state);
+        else
+            loggedStates[node] = state;
+    }
 
+    public int GetState(NodeIDs node)
+    {
+        if (loggedStates.ContainsKey(node))
+            return loggedStates[node];
+        else
+            return 0;
     }
 
     public void RemoveInvItem(InventoryItem item)
