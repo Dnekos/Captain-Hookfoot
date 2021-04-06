@@ -1,0 +1,33 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "99f823b7-ff89-4fce-a982-83a042fef58b",
+            "actions": [
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "158221d8-62af-4a2e-b355-c496c250c611",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6926e31c-3dda-480c-b1c3-859deeecbefb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
