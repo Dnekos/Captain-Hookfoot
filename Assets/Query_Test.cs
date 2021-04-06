@@ -49,7 +49,6 @@ public class Query_Test : MonoBehaviour
 
         // Close connection
         dbcon.Close();
-
     }
 
     // Update is called once per frame
