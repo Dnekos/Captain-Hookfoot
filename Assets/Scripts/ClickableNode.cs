@@ -40,7 +40,7 @@ string connection;
         string query = "SELECT " + term + " FROM NodeDialogue WHERE ID=" + id;
         cmnd_read.CommandText = query;
         reader = cmnd_read.ExecuteReader();
-        string output = reader[1].ToString(); 
+        string output = reader[0].ToString(); 
         dbcon.Close();
         return output;
     }
