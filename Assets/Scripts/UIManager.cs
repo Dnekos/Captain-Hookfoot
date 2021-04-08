@@ -14,23 +14,22 @@ public class UIManager : MonoBehaviour
     RectTransform invPanel;
 
     // inv button
-    static bool inventoryopen = false;
     Vector3 startingposition;
+    int row;
 
     // content fitter
     GameObject SizeHolder; // prevents the panel from getting too small
     private void Start()
     {
         invImages = new List<GameObject>();
-        startingposition = transform.localPosition;
+        startingposition = Vector3.zero;//invPanel.localPosition;
         SizeHolder = null;
     }
     private void Update()
     {
-        if (inventoryopen)
-            transform.localPosition = Vector3.Lerp(transform.localPosition, startingposition + new Vector3(0, invPanel.sizeDelta.y), 0.05f);
-        else
-            transform.localPosition = Vector3.Lerp(transform.localPosition, startingposition, 0.05f);
+        invPanel.localPosition = Vector3.Lerp(invPanel.localPosition, 
+            startingposition + row * new Vector3(0, InventorySlotPrefab.GetComponent<RectTransform>().sizeDelta.y - 10), 0.05f);
+
         if (invImages.Count == 0 && !SizeHolder)
         {
             SizeHolder = Instantiate(InventorySlotPrefab, invPanel);
@@ -60,12 +59,10 @@ public class UIManager : MonoBehaviour
                 break;
             }
     }
-    public void openInventory()
+
+    public void ChangeRow(int dir)
     {
-        inventoryopen = !inventoryopen;
-    }
-    public static void SetInventoryState(bool open)
-    {
-        inventoryopen = open;
+        if (row + dir >= 0 && row + dir < Mathf.Ceil(invImages.Count / 3f))
+            row += dir;
     }
 }

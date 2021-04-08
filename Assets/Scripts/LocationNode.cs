@@ -18,12 +18,10 @@ public class LocationNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        UIManager.SetInventoryState(false);
         SceneManager.LoadScene((int)Destination);
     }
     public override void LookAt()
     {
-        UIManager.SetInventoryState(false);
         base.LookAt();
     }
 }

@@ -112,13 +112,11 @@ public class InteractableNode : ClickableNode
 
     override public void LookAt()
     {
-        UIManager.SetInventoryState(false);
         base.LookAt();
         checkStateCondition(Actions.Look);
     }
     override public void Interact(InventoryItem item)
     {
-        UIManager.SetInventoryState(false);
         base.Interact(item);
 
         if (item == InventoryItem.None)
