@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     InventoryItem heldItem;
     [SerializeField]
-    Actions currentAction = Actions.Interact;
+    //Actions currentAction = Actions.Interact;
     Dictionary<NodeIDs, int> loggedStates;
 
     Controls inputs;
@@ -67,15 +67,12 @@ public class Player : MonoBehaviour
         return heldItem;
     }
 
-    public Actions GetAction()
+
+    public void SetHeldItem(InventoryItem item = InventoryItem.None)
     {
-        return currentAction;
-    }
-    public void SetAction(Actions newaction, InventoryItem item = InventoryItem.None)
-    {
-        Debug.Log("Current action is now " + newaction);
+        if (item == InventoryItem.None)
+            GameObject.Find("MouseInv").GetComponent<MouseFollow>().closeImage(); // set mouse Image
         instance.heldItem = item;
-        instance.currentAction = newaction;
     }
 
     //these two are needed for the inputs to work

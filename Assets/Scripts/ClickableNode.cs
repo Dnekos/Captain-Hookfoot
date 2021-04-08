@@ -34,7 +34,6 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     {
         //Setup file with url
         connection = "URI=file:" + Application.dataPath + "/" + dbName;
-        Debug.LogError(connection);
         dbcon = new SqliteConnection(connection);
     }
 
@@ -66,15 +65,16 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
+        {
             LookAt(); // TEMP: right click looks
+            Player.instance.SetHeldItem();
+        }
         else if (eventData.button == PointerEventData.InputButton.Left && Player.instance.GetHeldItem() == InventoryItem.None)
             Interact(Player.instance.GetHeldItem());
         else
         {
             Interact(Player.instance.GetHeldItem());
-            // reset actions to default
-            if (Player.instance.GetAction() != Actions.Interact) // unsure if getaction/setaction are needed
-                Player.instance.SetAction(Actions.Interact);
+            Player.instance.SetHeldItem();
         }
     }
 

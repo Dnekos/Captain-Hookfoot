@@ -805,7 +805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldItem: -1
-  currentAction: 0
 --- !u!4 &792554734
 Transform:
   m_ObjectHideFlags: 0
@@ -1394,6 +1393,22 @@ PrefabInstance:
     - target: {fileID: 8995225846575308765, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995225847355285752, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -55.4126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995225847355285752, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19.520208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995225847355285752, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.7285995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995225847355285759, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
