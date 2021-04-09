@@ -20,7 +20,8 @@ public enum NodeIDs
     LockedRoomDoor,
     PegLegPete,
     MagnifyingGlass,
-    Desk
+    Desk,
+    Light
 }
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler

@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4832129921712170660, guid: 581f9a67e5579ce4ba2d6187f7be28bc, type: 3}
+      propertyPath: data
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4832129921712170663, guid: 581f9a67e5579ce4ba2d6187f7be28bc, type: 3}
       propertyPath: m_Name
       value: Rope
@@ -561,11 +565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207419192336596526, guid: f8e9c27f404c98e438cfe6eced6206d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.49
+      value: -31.41
       objectReference: {fileID: 0}
     - target: {fileID: 5207419192336596526, guid: f8e9c27f404c98e438cfe6eced6206d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 5207419192336596526, guid: f8e9c27f404c98e438cfe6eced6206d0, type: 3}
       propertyPath: m_LocalPosition.z

@@ -5,11 +5,12 @@ using UnityEngine;
 public enum InventoryItem
 {
     None = -1,
-    Key,
+    Key = 1,
     Rope,
     Shovel,
     MagnifyingGlass,
-    Candle
+    Candle,
+    Note
 };
 
 public class PickupNode : ClickableNode

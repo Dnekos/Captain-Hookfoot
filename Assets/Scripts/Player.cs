@@ -62,6 +62,10 @@ public class Player : MonoBehaviour
         if (item == heldItem) // reset heldIndex (may be redundant?)
             heldItem = InventoryItem.None;
     }
+    public bool ContainsItem(InventoryItem item)
+    {
+        return GameObject.Find("InventoryMenu").GetComponent<UIManager>().Contains(item);
+    }
     public InventoryItem GetHeldItem()
     {
         return heldItem;

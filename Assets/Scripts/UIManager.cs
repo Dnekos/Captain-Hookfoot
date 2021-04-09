@@ -41,6 +41,15 @@ public class UIManager : MonoBehaviour
             SizeHolder = null;
         }
     }
+    public bool Contains(InventoryItem data)
+    {
+        foreach (GameObject slot in invImages)
+            if (slot.GetComponent<InventorySlotManager>().invItem == data)
+            {
+                return true;
+            }
+        return false;
+    }
 
     public void AddInventoryImage(InventoryItem data)
     {

@@ -24,6 +24,7 @@ public class InteractableNode : ClickableNode
         public InventoryItem sItem = InventoryItem.None;
         public bool sRemoveItem = false; // remove item from inventory when used
         public bool sRepeatOnSceneEnter = false; // if the OnChange should be called at start
+        public bool sHasNote = false;
         [SerializeField]
         private UnityEvent m_OnChange = new UnityEvent();
 
@@ -31,7 +32,8 @@ public class InteractableNode : ClickableNode
         public bool ConditionMet(Actions action, InventoryItem item)
         {
             if (sAction == action && // if the action matches
-                (sAction != Actions.UseItem || sItem == item)) // if the action is UseItem, make sure the item is correct
+                (sAction != Actions.UseItem || sItem == item) && // if the action is UseItem, make sure the item is correct
+                (!sHasNote || Player.instance.ContainsItem(InventoryItem.Note))) // 
                 return true;
             return false;
         }
@@ -84,6 +86,9 @@ public class InteractableNode : ClickableNode
             contentPosition.height -= 100;
             EditorGUIUtility.labelWidth = 70f;
             EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sRepeatOnSceneEnter"), new GUIContent("Run at Start"));
+            contentPosition.y += 15;
+            contentPosition.height += 10;
+            EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sHasNote"), new GUIContent("has Note"));
 
             //serializedObject.ApplyModifiedProperties();
 
