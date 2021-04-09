@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     InventoryItem heldItem;
     [SerializeField]
-    //Actions currentAction = Actions.Interact;
+    UIManager UI;
     Dictionary<NodeIDs, int> loggedStates;
 
     Controls inputs;
@@ -57,14 +57,14 @@ public class Player : MonoBehaviour
     public void RemoveInvItem(InventoryItem item)
     {
         Debug.Log("Removing " + item + " from inventory");
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().RemoveInventoryImage(item); // delete UI object
+        UI.RemoveInventoryImage(item); // delete UI object
 
         if (item == heldItem) // reset heldIndex (may be redundant?)
             heldItem = InventoryItem.None;
     }
     public bool ContainsItem(InventoryItem item)
     {
-        return GameObject.Find("InventoryMenu").GetComponent<UIManager>().Contains(item);
+        return UI.Contains(item);
     }
     public InventoryItem GetHeldItem()
     {

@@ -22,6 +22,6 @@ public class InventorySlotManager : ClickableNode
     }
     public override void LookAt()
     {
-        //base.LookAt();
+        TextDebug(FetchTextByID((int)invItem, "LookDialogue", "InventoryDialogue"));
     }
 }

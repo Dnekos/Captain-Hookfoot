@@ -45,7 +45,7 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         dbcon = new SqliteConnection(connection);
     }
 
-    string FetchTextByID(int id, string term)
+    protected string FetchTextByID(int id, string term, string table = "NodeDialogue")
     {
         InitDatabase();
 
@@ -53,7 +53,7 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         // Read and print all values in table
         dbcon.Open();
         IDbCommand cmnd_read = dbcon.CreateCommand();
-        string query = "SELECT " + term + " FROM NodeDialogue WHERE ID=" + id;
+        string query = "SELECT " + term + " FROM " + table + " WHERE ID=" + id;
         cmnd_read.CommandText = query;
         reader = cmnd_read.ExecuteReader();
         string output = reader[0].ToString(); 
@@ -86,7 +86,7 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void TextDebug(string text)
+    protected void TextDebug(string text)
     {
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = text;
     }
