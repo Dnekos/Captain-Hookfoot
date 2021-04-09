@@ -8,7 +8,7 @@ public class IslandObserver : BaseObserver
     GameObject dialoguebubble;
     public void GiveShovel()
     {
-        GiveItem(InventoryItem.Key);
+        GiveItem(InventoryItem.Shovel);
     }
     public void IntroDialogue()
     {

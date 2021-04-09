@@ -13,7 +13,14 @@ public enum NodeIDs
     CaveToIsland,
     CaveToWell,
     Lock,
-    Rope
+    Rope,
+    Ship,
+    Sand,
+    Mat,
+    LockedRoomDoor,
+    PegLegPete,
+    MagnifyingGlass,
+    Desk
 }
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler

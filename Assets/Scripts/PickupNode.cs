@@ -6,7 +6,10 @@ public enum InventoryItem
 {
     None = -1,
     Key,
-    Rope
+    Rope,
+    Shovel,
+    MagnifyingGlass,
+    Candle
 };
 
 public class PickupNode : ClickableNode
