@@ -29,13 +29,17 @@ public class Player : MonoBehaviour
         inputs = new Controls();
         inputs.Game.Exit.performed += ctx => OnExit(); // bind the escape key to the OnExit Function
 
-        DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnExit()
     {
         Debug.Log("exit");
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     public void LogState(NodeIDs node, int state)
@@ -86,6 +90,7 @@ public class Player : MonoBehaviour
     }
     private void OnDisable()
     {
-        instance.inputs.Game.Disable();
+         if (instance == this)
+            instance.inputs.Game.Disable();
     }
 }
