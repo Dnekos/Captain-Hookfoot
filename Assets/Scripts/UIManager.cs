@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     GameObject InventorySlotPrefab;
     [SerializeField]
     List<GameObject> invImages;
+    List<InventoryItem> previouslyhelditems;
     [SerializeField]
     RectTransform invPanel;
 
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         invImages = new List<GameObject>();
+        previouslyhelditems = new List<InventoryItem>();
         startingposition = Vector3.zero;//invPanel.localPosition;
         SizeHolder = null;
     }
@@ -53,9 +55,13 @@ public class UIManager : MonoBehaviour
 
     public void AddInventoryImage(InventoryItem data)
     {
+        if (previouslyhelditems.Contains(data))
+            return;
         InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/"+data);
         InventorySlotPrefab.GetComponent<InventorySlotManager>().invItem = data;
+
         invImages.Add(Instantiate(InventorySlotPrefab, invPanel));
+        previouslyhelditems.Add(data);
     }
     public void RemoveInventoryImage(InventoryItem index)
     {
