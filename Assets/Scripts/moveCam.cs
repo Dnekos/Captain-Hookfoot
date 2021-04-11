@@ -10,6 +10,8 @@ public class moveCam : MonoBehaviour
     float speed = 1;
     [SerializeField]
     SpriteRenderer border;
+    [SerializeField]
+    float edgeTriggers = 30;
     Camera cam;
     private void Start()
     {
@@ -21,10 +23,9 @@ public class moveCam : MonoBehaviour
     {
         float diff = speed * Time.deltaTime, spriteradius = border.sprite.bounds.size.x * 0.5f;
         Vector2 mouse = Mouse.current.position.ReadValue();
-        Debug.Log(spriteradius + " " + spriteradius / 50f + " " + spriteradius * 0.05f);
-        if (mouse.x > screenWidth - 30 && cam.ScreenToWorldPoint(new Vector2(screenWidth, 0)).x + diff + spriteradius * 0.06 < border.transform.position.x + spriteradius)
+        if (mouse.x > screenWidth - edgeTriggers && cam.ScreenToWorldPoint(new Vector2(screenWidth, 0)).x + diff + spriteradius * 0.06 < border.transform.position.x + spriteradius)
             transform.position += Vector3.right * diff;
-        else if (mouse.x < 30 && cam.ScreenToWorldPoint(new Vector2(0, 0)).x - diff - spriteradius * 0.06 > border.transform.position.x - spriteradius)
+        else if (mouse.x < edgeTriggers && cam.ScreenToWorldPoint(new Vector2(0, 0)).x - diff - spriteradius * 0.06 > border.transform.position.x - spriteradius)
             transform.position += Vector3.left * diff;
 
     }
