@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 public enum Locations
 {
     WellRoom,
-    Island
+    Island,
+    ship,
+    lockedRoom
 }
 
 public class LocationNode : ClickableNode
@@ -18,12 +20,10 @@ public class LocationNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        UIManager.SetInventoryState(false);
         SceneManager.LoadScene((int)Destination);
     }
     public override void LookAt()
     {
-        UIManager.SetInventoryState(false);
         base.LookAt();
     }
 }

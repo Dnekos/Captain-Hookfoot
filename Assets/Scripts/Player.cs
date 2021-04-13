@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     InventoryItem heldItem;
     [SerializeField]
-    Actions currentAction = Actions.Interact;
+    UIManager UI;
     Dictionary<NodeIDs, int> loggedStates;
 
     Controls inputs;
@@ -29,13 +29,17 @@ public class Player : MonoBehaviour
         inputs = new Controls();
         inputs.Game.Exit.performed += ctx => OnExit(); // bind the escape key to the OnExit Function
 
-        DontDestroyOnLoad(gameObject); // may be unnecessary? prob is with shifting rooms
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnExit()
     {
         Debug.Log("exit");
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     public void LogState(NodeIDs node, int state)
@@ -57,25 +61,26 @@ public class Player : MonoBehaviour
     public void RemoveInvItem(InventoryItem item)
     {
         Debug.Log("Removing " + item + " from inventory");
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().RemoveInventoryImage(item); // delete UI object
+        UI.RemoveInventoryImage(item); // delete UI object
 
         if (item == heldItem) // reset heldIndex (may be redundant?)
             heldItem = InventoryItem.None;
+    }
+    public bool ContainsItem(InventoryItem item)
+    {
+        return UI.Contains(item);
     }
     public InventoryItem GetHeldItem()
     {
         return heldItem;
     }
 
-    public Actions GetAction()
+
+    public void SetHeldItem(InventoryItem item = InventoryItem.None)
     {
-        return currentAction;
-    }
-    public void SetAction(Actions newaction, InventoryItem item = InventoryItem.None)
-    {
-        Debug.Log("Current action is now " + newaction);
+        if (item == InventoryItem.None)
+            GameObject.Find("MouseInv").GetComponent<MouseFollow>().closeImage(); // set mouse Image
         instance.heldItem = item;
-        instance.currentAction = newaction;
     }
 
     //these two are needed for the inputs to work
@@ -85,6 +90,7 @@ public class Player : MonoBehaviour
     }
     private void OnDisable()
     {
-        instance.inputs.Game.Disable();
+         if (instance == this)
+            instance.inputs.Game.Disable();
     }
 }

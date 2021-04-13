@@ -5,13 +5,18 @@ using UnityEngine;
 public class IslandObserver : BaseObserver
 {
     [SerializeField]
-    GameObject dialoguebubble;
-    public void GiveShovel()
+    Sprite closedchest;
+    [SerializeField]
+    Sprite openchest;
+
+    public void ShowChest(SpriteRenderer self)
     {
-        GiveItem(InventoryItem.Key);
+        self.sprite = closedchest;
     }
-    public void IntroDialogue()
+    public void OpenChest(SpriteRenderer self)
     {
-        AddNode(dialoguebubble);
+        self.sprite = openchest;
+        GiveItem(InventoryItem.Note);
     }
+
 }

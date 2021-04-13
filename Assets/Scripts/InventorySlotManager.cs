@@ -8,16 +8,20 @@ public class InventorySlotManager : ClickableNode
     public override void Interact(InventoryItem item)
     {
         Debug.Log("clicked");
-        if(item == InventoryItem.None)
-            Player.instance.SetAction(Actions.UseItem, invItem);
-        else if (Player.instance.GetAction() == Actions.UseItem)
+        if (item == InventoryItem.None)
+        {
+            Player.instance.SetHeldItem(invItem);
+            GameObject.Find("MouseInv").GetComponent<MouseFollow>().setImage(invItem); // set mouse Image
+        }
+        else
         {
             base.Interact(item);
+
             // CHECK IF THEY ARE COMPATIBLE, PERHAPS USE A DATABASE
         }
     }
     public override void LookAt()
     {
-        //base.LookAt();
+        TextDebug(FetchTextByID((int)invItem, "LookDialogue", "InventoryDialogue"));
     }
 }

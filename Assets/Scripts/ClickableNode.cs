@@ -13,7 +13,15 @@ public enum NodeIDs
     CaveToIsland,
     CaveToWell,
     Lock,
-    Rope
+    Rope,
+    Ship,
+    Sand,
+    Mat,
+    LockedRoomDoor,
+    PegLegPete,
+    MagnifyingGlass,
+    Desk,
+    Light
 }
 
 public class ClickableNode : MonoBehaviour, IPointerClickHandler
@@ -34,11 +42,10 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     {
         //Setup file with url
         connection = "URI=file:" + Application.dataPath + "/" + dbName;
-        Debug.LogError(connection);
         dbcon = new SqliteConnection(connection);
     }
 
-    string FetchTextByID(int id, string term)
+    protected string FetchTextByID(int id, string term, string table = "NodeDialogue")
     {
         InitDatabase();
 
@@ -46,7 +53,7 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         // Read and print all values in table
         dbcon.Open();
         IDbCommand cmnd_read = dbcon.CreateCommand();
-        string query = "SELECT " + term + " FROM NodeDialogue WHERE ID=" + id;
+        string query = "SELECT " + term + " FROM " + table + " WHERE ID=" + id;
         cmnd_read.CommandText = query;
         reader = cmnd_read.ExecuteReader();
         string output = reader[0].ToString(); 
@@ -66,19 +73,20 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
+        {
             LookAt(); // TEMP: right click looks
+            Player.instance.SetHeldItem();
+        }
         else if (eventData.button == PointerEventData.InputButton.Left && Player.instance.GetHeldItem() == InventoryItem.None)
             Interact(Player.instance.GetHeldItem());
         else
         {
             Interact(Player.instance.GetHeldItem());
-            // reset actions to default
-            if (Player.instance.GetAction() != Actions.Interact) // unsure if getaction/setaction are needed
-                Player.instance.SetAction(Actions.Interact);
+            Player.instance.SetHeldItem();
         }
     }
 
-    void TextDebug(string text)
+    protected void TextDebug(string text)
     {
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = text;
     }

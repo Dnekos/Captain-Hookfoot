@@ -10,27 +10,28 @@ public class UIManager : MonoBehaviour
     GameObject InventorySlotPrefab;
     [SerializeField]
     List<GameObject> invImages;
+    List<InventoryItem> previouslyhelditems;
     [SerializeField]
     RectTransform invPanel;
 
     // inv button
-    static bool inventoryopen = false;
     Vector3 startingposition;
+    int row;
 
     // content fitter
     GameObject SizeHolder; // prevents the panel from getting too small
     private void Start()
     {
         invImages = new List<GameObject>();
-        startingposition = transform.localPosition;
+        previouslyhelditems = new List<InventoryItem>();
+        startingposition = Vector3.zero;//invPanel.localPosition;
         SizeHolder = null;
     }
     private void Update()
     {
-        if (inventoryopen)
-            transform.localPosition = Vector3.Lerp(transform.localPosition, startingposition + new Vector3(0, invPanel.sizeDelta.y), 0.05f);
-        else
-            transform.localPosition = Vector3.Lerp(transform.localPosition, startingposition, 0.05f);
+        invPanel.localPosition = Vector3.Lerp(invPanel.localPosition, 
+            startingposition + row * new Vector3(0, InventorySlotPrefab.GetComponent<RectTransform>().sizeDelta.y - 10), 0.05f);
+
         if (invImages.Count == 0 && !SizeHolder)
         {
             SizeHolder = Instantiate(InventorySlotPrefab, invPanel);
@@ -42,12 +43,25 @@ public class UIManager : MonoBehaviour
             SizeHolder = null;
         }
     }
+    public bool Contains(InventoryItem data)
+    {
+        foreach (GameObject slot in invImages)
+            if (slot.GetComponent<InventorySlotManager>().invItem == data)
+            {
+                return true;
+            }
+        return false;
+    }
 
     public void AddInventoryImage(InventoryItem data)
     {
+        if (previouslyhelditems.Contains(data))
+            return;
         InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/"+data);
         InventorySlotPrefab.GetComponent<InventorySlotManager>().invItem = data;
+
         invImages.Add(Instantiate(InventorySlotPrefab, invPanel));
+        previouslyhelditems.Add(data);
     }
     public void RemoveInventoryImage(InventoryItem index)
     {
@@ -60,12 +74,10 @@ public class UIManager : MonoBehaviour
                 break;
             }
     }
-    public void openInventory()
+
+    public void ChangeRow(int dir)
     {
-        inventoryopen = !inventoryopen;
-    }
-    public static void SetInventoryState(bool open)
-    {
-        inventoryopen = open;
+        if (row + dir >= 0 && row + dir < Mathf.Ceil(invImages.Count / 3f))
+            row += dir;
     }
 }

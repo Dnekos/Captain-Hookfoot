@@ -5,8 +5,12 @@ using UnityEngine;
 public enum InventoryItem
 {
     None = -1,
-    Key,
-    Rope
+    Key = 1,
+    Rope,
+    Shovel,
+    MagnifyingGlass,
+    Candle,
+    Note
 };
 
 public class PickupNode : ClickableNode
@@ -22,7 +26,6 @@ public class PickupNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        UIManager.SetInventoryState(false); // close inventory
         base.Interact(item); // do dialogue
         Player.instance.LogState(UID, 1); // log that item was picked up
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
@@ -30,7 +33,6 @@ public class PickupNode : ClickableNode
     }
     public override void LookAt()
     {
-        UIManager.SetInventoryState(false); // close inventory
         base.LookAt(); // run look dialogue
     }
 }
