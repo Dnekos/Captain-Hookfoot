@@ -25,6 +25,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AdvanceText"",
+                    ""type"": ""Button"",
+                    ""id"": ""3fee1e2f-0a5a-4e0b-9340-d656057a8556"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +46,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15e3fb2b-d2bb-4567-8eed-f410aedbcdb1"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceText"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +66,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
+        m_Game_AdvanceText = m_Game.FindAction("AdvanceText", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +117,13 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Game;
     private IGameActions m_GameActionsCallbackInterface;
     private readonly InputAction m_Game_Exit;
+    private readonly InputAction m_Game_AdvanceText;
     public struct GameActions
     {
         private @Controls m_Wrapper;
         public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Exit => m_Wrapper.m_Game_Exit;
+        public InputAction @AdvanceText => m_Wrapper.m_Game_AdvanceText;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +136,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Exit.started -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
                 @Exit.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
                 @Exit.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
+                @AdvanceText.started -= m_Wrapper.m_GameActionsCallbackInterface.OnAdvanceText;
+                @AdvanceText.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnAdvanceText;
+                @AdvanceText.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnAdvanceText;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +146,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Exit.started += instance.OnExit;
                 @Exit.performed += instance.OnExit;
                 @Exit.canceled += instance.OnExit;
+                @AdvanceText.started += instance.OnAdvanceText;
+                @AdvanceText.performed += instance.OnAdvanceText;
+                @AdvanceText.canceled += instance.OnAdvanceText;
             }
         }
     }
@@ -128,5 +156,6 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IGameActions
     {
         void OnExit(InputAction.CallbackContext context);
+        void OnAdvanceText(InputAction.CallbackContext context);
     }
 }

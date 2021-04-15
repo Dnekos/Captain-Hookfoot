@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // inv panel
+    [Header("Dialogue")]
+    [SerializeField]
+    GameObject DialoguePanel;
+
+    [Header("Inventory")]
     [SerializeField]
     GameObject InventorySlotPrefab;
     [SerializeField]
@@ -26,6 +30,10 @@ public class UIManager : MonoBehaviour
         previouslyhelditems = new List<InventoryItem>();
         startingposition = Vector3.zero;//invPanel.localPosition;
         SizeHolder = null;
+        DialoguePanel.SetActive(false);
+
+        // DEBUG
+        StartDialogue(1);
     }
     private void Update()
     {
@@ -79,5 +87,11 @@ public class UIManager : MonoBehaviour
     {
         if (row + dir >= 0 && row + dir < Mathf.Ceil(invImages.Count / 3f))
             row += dir;
+    }
+
+    public void StartDialogue(int TreeID)
+    {
+        DialoguePanel.SetActive(true);
+        DialoguePanel.GetComponent<DialogueManager>().StartDialogue(TreeID);
     }
 }

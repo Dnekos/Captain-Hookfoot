@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df82feb68c5ba244e9629860dd8a5b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: 1
+  textSpeed: 30
   counting: 0
   NametagPos: {fileID: 2320527463438635850}
   NametagText: {fileID: 3615848713456933938}
@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8159de968db45434b8518bad28c9e932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialoguePanel: {fileID: 0}
   InventorySlotPrefab: {fileID: 827586276085541042, guid: 28e35d4a94430bc4da9a54ee8137c273, type: 3}
   invImages: []
   invPanel: {fileID: 0}
@@ -783,7 +784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: NameHere
 --- !u!1 &8995225846179219116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8159de968db45434b8518bad28c9e932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialoguePanel: {fileID: 970338908576434338}
   InventorySlotPrefab: {fileID: 827586276085541042, guid: 28e35d4a94430bc4da9a54ee8137c273, type: 3}
   invImages: []
   invPanel: {fileID: 8995225846575308765}
