@@ -53,6 +53,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1816514450325505160}
     m_Modifications:
+    - target: {fileID: 4479728779014703863, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8995225846305493670, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
@@ -207,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995225847756643706, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.5
+      value: -2.5000305
       objectReference: {fileID: 0}
     - target: {fileID: 8995225847800824746, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_AnchorMax.x
