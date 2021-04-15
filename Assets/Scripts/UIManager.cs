@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
         DialoguePanel.SetActive(false);
 
         // DEBUG
-        StartDialogue(1);
+        //StartDialogue(1);
     }
     private void Update()
     {
