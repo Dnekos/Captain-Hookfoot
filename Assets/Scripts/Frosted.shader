@@ -4,9 +4,7 @@ Shader "Unlit/FrostedGlass"
 {
 	Properties
 	{
-		//_Radius("Radius", Range(1, 255)) = 1
-		_Radius("Radius", Range(1, 510)) = 1
-
+		_Radius("Radius", Range(1, 255)) = 1
 	}
 
 		Category
