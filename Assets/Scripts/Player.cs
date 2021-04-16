@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     InventoryItem heldItem;
     [SerializeField]
     UIManager UI;
+    [SerializeField]
+    GameObject pausePanel;
     Dictionary<NodeIDs, int> loggedStates;
 
     Controls inputs;
@@ -27,19 +29,20 @@ public class Player : MonoBehaviour
 
         instance.loggedStates = new Dictionary<NodeIDs, int>();
         inputs = new Controls();
-        inputs.Game.Exit.performed += ctx => OnExit(); // bind the escape key to the OnExit Function
+        inputs.Game.Pause.performed += ctx => OnPause(); // bind the escape key to the OnPause Function
 
         DontDestroyOnLoad(gameObject);
     }
 
-    private void OnExit()
+    private void OnPause()
     {
-        Debug.Log("exit");
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
+        Debug.Log("pause");
+        pausePanel.SetActive(true);
+//#if UNITY_EDITOR
+//        UnityEditor.EditorApplication.isPlaying = false;
+//#else
+//         Application.Quit();
+//#endif
     }
 
     public void LogState(NodeIDs node, int state)

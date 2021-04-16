@@ -19,7 +19,7 @@ public class @Controls : IInputActionCollection, IDisposable
             ""id"": ""99f823b7-ff89-4fce-a982-83a042fef58b"",
             ""actions"": [
                 {
-                    ""name"": ""Exit"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""158221d8-62af-4a2e-b355-c496c250c611"",
                     ""expectedControlType"": ""Button"",
@@ -35,7 +35,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Exit"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -46,7 +46,7 @@ public class @Controls : IInputActionCollection, IDisposable
 }");
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
-        m_Game_Exit = m_Game.FindAction("Exit", throwIfNotFound: true);
+        m_Game_Pause = m_Game.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -96,12 +96,12 @@ public class @Controls : IInputActionCollection, IDisposable
     // Game
     private readonly InputActionMap m_Game;
     private IGameActions m_GameActionsCallbackInterface;
-    private readonly InputAction m_Game_Exit;
+    private readonly InputAction m_Game_Pause;
     public struct GameActions
     {
         private @Controls m_Wrapper;
         public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Exit => m_Wrapper.m_Game_Exit;
+        public InputAction @Pause => m_Wrapper.m_Game_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -111,22 +111,22 @@ public class @Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GameActionsCallbackInterface != null)
             {
-                @Exit.started -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
-                @Exit.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
-                @Exit.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnExit;
+                @Pause.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Exit.started += instance.OnExit;
-                @Exit.performed += instance.OnExit;
-                @Exit.canceled += instance.OnExit;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
     public GameActions @Game => new GameActions(this);
     public interface IGameActions
     {
-        void OnExit(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
