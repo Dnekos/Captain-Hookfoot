@@ -38,6 +38,12 @@ public class DialogueManager : Databaser
     public void StartDialogue(int TreeID)
     {
         table = FetchDialog(TreeID);
+
+        if (table[0].Left != "")
+            LeftImg.sprite = Resources.Load<Sprite>("Portraits/" + table[0].Left);
+        if (table[0].Right != "")
+            RightImg.sprite = Resources.Load<Sprite>("Portraits/" + table[0].Right);
+
         textIndex = 0;
         textTimer = 0;
         counting = true;
@@ -56,6 +62,12 @@ public class DialogueManager : Databaser
 
         NametagText.text = "";
         TextBody.text = "";
+
+        Debug.LogError("Portraits/ "+table[0].Left);  
+        if (table[0].Left != "")
+            LeftImg.sprite = Resources.Load<Sprite>("Portraits/" +table[0].Left);
+        if (table[0].Right != "")
+            RightImg.sprite = Resources.Load<Sprite>("Portraits/" + table[0].Right);
 
         if (table.Count == 0)
             gameObject.SetActive(false);
