@@ -16,6 +16,14 @@ public class Player : MonoBehaviour
 
     Controls inputs;
 
+    public enum GameState
+    {
+        PLAY,
+        PAUSE
+    }
+
+    public GameState gameState;
+
     private void Awake()
     {
         // create singletons
@@ -29,6 +37,7 @@ public class Player : MonoBehaviour
 
         instance.loggedStates = new Dictionary<NodeIDs, int>();
         inputs = new Controls();
+        gameState = GameState.PLAY;
         inputs.Game.Pause.performed += ctx => OnPause(); // bind the escape key to the OnPause Function
 
         DontDestroyOnLoad(gameObject);
@@ -37,12 +46,9 @@ public class Player : MonoBehaviour
     private void OnPause()
     {
         Debug.Log("pause");
+        gameState = GameState.PAUSE;
         pausePanel.SetActive(true);
-//#if UNITY_EDITOR
-//        UnityEditor.EditorApplication.isPlaying = false;
-//#else
-//         Application.Quit();
-//#endif
+
     }
 
     public void LogState(NodeIDs node, int state)
