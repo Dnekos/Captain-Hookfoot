@@ -18,10 +18,14 @@ public enum NodeIDs
     Sand,
     Mat,
     LockedRoomDoor,
-    PegLegPete,
+    Boomstick,
     MagnifyingGlass,
     Desk,
-    Light
+    Light,
+    Bottle1,
+    Bottle2,
+    Bottle3,
+    Bottle4
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler
