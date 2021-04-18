@@ -1103,6 +1103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1816514450325505162, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1816514451560048328, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1393,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084559446914264193, guid: 8293871a6e18b474ebd6abb9f29fcb9d, type: 3}
       propertyPath: ChangeConditions.Array.data[0].m_OnChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TalkToPLP
+      value: TalkToBoomstick
       objectReference: {fileID: 0}
     - target: {fileID: 1084559446914264193, guid: 8293871a6e18b474ebd6abb9f29fcb9d, type: 3}
       propertyPath: ChangeConditions.Array.data[0].m_OnChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1941,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084559446914264193, guid: 8293871a6e18b474ebd6abb9f29fcb9d, type: 3}
       propertyPath: ChangeConditions.Array.data[0].m_OnChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveCandle
+      value: GiveGlass
       objectReference: {fileID: 0}
     - target: {fileID: 1084559446914264193, guid: 8293871a6e18b474ebd6abb9f29fcb9d, type: 3}
       propertyPath: ChangeConditions.Array.data[0].m_OnChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

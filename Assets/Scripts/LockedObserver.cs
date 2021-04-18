@@ -16,7 +16,7 @@ public class LockedObserver : BaseObserver
     }
     public void TalkToBoomstick(GameObject BS)
     {
-        //COnversationhere STartDialogue(2);
+        OpenDialogue(2);
         disableObject(BS);
         RemoveItem(InventoryItem.Key);
     }
