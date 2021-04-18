@@ -9,8 +9,12 @@ public class DisplayNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        Camera.main.enabled = false;
-        target.enabled = true;
+        GameObject maincam = Camera.main.gameObject;
+        //Camera.main.enabled = false;    
+
+        Camera.main.gameObject.SetActive(false);
+
+        target.gameObject.SetActive(true);
     }
     public override void LookAt()
     {
