@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heldItem: -1
   UI: {fileID: 1816514450323367020}
+  pausePanel: {fileID: 0}
+  gameState: 0
 --- !u!1001 &7341140601339984149
 PrefabInstance:
   m_ObjectHideFlags: 0

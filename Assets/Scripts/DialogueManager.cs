@@ -22,14 +22,15 @@ public class DialogueManager : Databaser
     [SerializeField]
     Transform NametagPos;
     [SerializeField]
-    Text NametagText,TextBody;
+    Text NametagText,PlayerBody,CrewBody;
     [SerializeField]
     Image LeftImg, RightImg;
 
     private void Awake()
     {
         NametagText.text = "";
-        TextBody.text = "";
+        PlayerBody.text = "";
+        CrewBody.text = "";
 
         inputs = new Controls();
         inputs.Game.AdvanceText.performed += ctx => NextLine(); // bind the escape key to the OnExit Function
@@ -54,25 +55,34 @@ public class DialogueManager : Databaser
         if (counting)
         {
             counting = false;
-            TextBody.text = table[0].Body;
+            if (table[0].Name == "Marg")
+                PlayerBody.text = table[0].Body;
+            else
+                CrewBody.text = table[0].Body;
             return;
         }
         table.RemoveAt(0);
         textIndex = 0;
 
-        NametagText.text = "";
-        TextBody.text = "";
+        if (table.Count == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        else
+            counting = true;
 
-        Debug.LogError("Portraits/ "+table[0].Left);  
+        NametagText.text = "";
+        if (table[0].Name == "Marg")
+            PlayerBody.text = "";
+        else
+            CrewBody.text = "";
+
         if (table[0].Left != "")
             LeftImg.sprite = Resources.Load<Sprite>("Portraits/" +table[0].Left);
         if (table[0].Right != "")
             RightImg.sprite = Resources.Load<Sprite>("Portraits/" + table[0].Right);
 
-        if (table.Count == 0)
-            gameObject.SetActive(false);
-        else
-            counting = true;
     }
 
     // Update is called once per frame
@@ -84,7 +94,11 @@ public class DialogueManager : Databaser
         {
             NametagText.text = table[0].Name.ToString();//loadedText[0].Value;
 
-            TextBody.text += table[0].Body.ToString()[textIndex];//loadedText[0].Key[textIndex]; // add next letter
+            if (table[0].Name == "Marg")
+                PlayerBody.text += table[0].Body.ToString()[textIndex]; // add next letter
+            else
+                CrewBody.text += table[0].Body.ToString()[textIndex]; // add next letter
+
             textIndex++;
 
             textTimer = 0; // reset timer
