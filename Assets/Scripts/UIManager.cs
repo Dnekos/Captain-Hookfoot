@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
     {
         if (previouslyhelditems.Contains(data))
             return;
-        InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/"+data);
+        InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/prop_"+data);
         InventorySlotPrefab.GetComponent<InventorySlotManager>().invItem = data;
 
         invImages.Add(Instantiate(InventorySlotPrefab, invPanel));

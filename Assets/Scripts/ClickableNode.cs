@@ -25,7 +25,8 @@ public enum NodeIDs
     Bottle1,
     Bottle2,
     Bottle3,
-    Bottle4
+    Bottle4,
+    Candle
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler

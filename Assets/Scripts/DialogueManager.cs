@@ -66,6 +66,8 @@ public class DialogueManager : Databaser
 
         if (table.Count == 0)
         {
+            PlayerBody.text = "";
+            CrewBody.text = "";
             gameObject.SetActive(false);
             return;
         }
