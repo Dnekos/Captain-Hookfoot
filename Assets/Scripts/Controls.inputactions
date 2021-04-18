@@ -6,9 +6,17 @@
             "id": "99f823b7-ff89-4fce-a982-83a042fef58b",
             "actions": [
                 {
-                    "name": "Exit",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "158221d8-62af-4a2e-b355-c496c250c611",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AdvanceText",
+                    "type": "Button",
+                    "id": "3fee1e2f-0a5a-4e0b-9340-d656057a8556",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -22,7 +30,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Exit",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15e3fb2b-d2bb-4567-8eed-f410aedbcdb1",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AdvanceText",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
