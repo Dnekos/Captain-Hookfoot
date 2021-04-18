@@ -6,7 +6,7 @@
             "id": "99f823b7-ff89-4fce-a982-83a042fef58b",
             "actions": [
                 {
-                    "name": "Exit",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "158221d8-62af-4a2e-b355-c496c250c611",
                     "expectedControlType": "Button",
@@ -30,7 +30,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Exit",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
