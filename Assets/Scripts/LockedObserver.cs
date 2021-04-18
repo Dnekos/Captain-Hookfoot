@@ -10,13 +10,14 @@ public class LockedObserver : BaseObserver
     {
         candle.enabled = true;
     }
-    public void GiveCandle()
+    public void GiveGlass()
     {
-        GiveItem(InventoryItem.Candle);
+        GiveItem(InventoryItem.MagnifyingGlass);
     }
-    public void TalkToPLP(GameObject Pete)
+    public void TalkToBoomstick(GameObject BS)
     {
-        disableObject(Pete);
+        //COnversationhere STartDialogue(2);
+        disableObject(BS);
         RemoveItem(InventoryItem.Key);
     }
 }
