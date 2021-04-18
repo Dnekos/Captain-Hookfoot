@@ -46,8 +46,15 @@ public class Player : MonoBehaviour
     private void OnPause()
     {
         Debug.Log("pause");
-        gameState = GameState.PAUSE;
-        pausePanel.SetActive(true);
+        if(gameState == GameState.PLAY)
+        {
+            gameState = GameState.PAUSE;
+            pausePanel.SetActive(true);
+        }
+        else{
+            pausePanel.SetActive(false);
+            gameState = GameState.PLAY;
+        }
 
     }
 
