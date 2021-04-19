@@ -6,17 +6,21 @@ public class LockedObserver : BaseObserver
 {
     [SerializeField]
     SpriteRenderer candle;
+    [SerializeField]
+    GameObject doorlock;
     public void PlaceCandle()
     {
         candle.enabled = true;
     }
-    public void GiveCandle()
+    public void GiveGlass()
     {
-        GiveItem(InventoryItem.Candle);
+        GiveItem(InventoryItem.MagnifyingGlass);
     }
-    public void TalkToPLP(GameObject Pete)
+    public void TalkToBoomstick(GameObject BS)
     {
-        disableObject(Pete);
+        OpenDialogue(2);
+        disableObject(BS);
+        doorlock.SetActive(true);
         RemoveItem(InventoryItem.Key);
     }
 }
