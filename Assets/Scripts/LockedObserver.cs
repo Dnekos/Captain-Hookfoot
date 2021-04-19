@@ -6,6 +6,8 @@ public class LockedObserver : BaseObserver
 {
     [SerializeField]
     SpriteRenderer candle;
+    [SerializeField]
+    GameObject doorlock;
     public void PlaceCandle()
     {
         candle.enabled = true;
@@ -18,6 +20,7 @@ public class LockedObserver : BaseObserver
     {
         OpenDialogue(2);
         disableObject(BS);
+        doorlock.SetActive(true);
         RemoveItem(InventoryItem.Key);
     }
 }

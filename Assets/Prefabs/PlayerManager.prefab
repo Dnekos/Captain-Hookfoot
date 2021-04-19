@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heldItem: -1
   UI: {fileID: 1816514450323367020}
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 8933574610424197024}
   gameState: 0
 --- !u!1001 &7341140601339984149
 PrefabInstance:
@@ -55,6 +55,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1816514450325505160}
     m_Modifications:
+    - target: {fileID: 970338908576434338, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1597847952697512760, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 10.232666
@@ -223,6 +227,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8995225847756643707, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8995225847800824746, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.43250003
@@ -270,3 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8159de968db45434b8518bad28c9e932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8933574610424197024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2169211913082853045, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
+  m_PrefabInstance: {fileID: 7341140601339984149}
+  m_PrefabAsset: {fileID: 0}
