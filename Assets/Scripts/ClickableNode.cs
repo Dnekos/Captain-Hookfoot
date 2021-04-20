@@ -29,12 +29,18 @@ public enum NodeIDs
     Candle
 }
 
-public class ClickableNode : Databaser, IPointerClickHandler
+public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {   
+    [Header("Clickable")]
     [SerializeField]
     protected NodeIDs UID;
     [SerializeField]
     protected int state = 0;
+
+    //sizing
+    [SerializeField]
+    bool EnlargeOnHover = true;
+    float sizedelta = 1.05f;
     
     public virtual void LookAt()
     {
@@ -59,6 +65,17 @@ public class ClickableNode : Databaser, IPointerClickHandler
             Interact(Player.instance.GetHeldItem());
             Player.instance.SetHeldItem();
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (EnlargeOnHover)
+            transform.localScale *= sizedelta;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (EnlargeOnHover)
+            transform.localScale /= sizedelta;
     }
 
     protected void DisplayThought(string text)

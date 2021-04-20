@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 3
   state: 0
+  EnlargeOnHover: 1
   Destination: 1
 --- !u!1001 &636552719
 PrefabInstance:
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 5
   state: 0
+  EnlargeOnHover: 1
   ChangeConditions:
   - sAction: 1
     sItem: 1
@@ -446,7 +448,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14256525, y: 0.21748853}
+  m_Offset: {x: -0.12273908, y: 0.25909996}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -457,7 +459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3074093, y: 7.919004}
+  m_Size: {x: 5.5366263, y: 8.335112}
   m_EdgeRadius: 0
 --- !u!212 &688356264
 SpriteRenderer:
@@ -643,7 +645,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786740526}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -676,6 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 2
   state: 0
+  EnlargeOnHover: 1
   Destination: 0
 --- !u!212 &786740529
 SpriteRenderer:
@@ -773,7 +776,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.019030333, y: 0.057095587}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -784,7 +787,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.5}
+  m_Size: {x: 1.8172002, y: 2.614191}
   m_EdgeRadius: 0
 --- !u!114 &1052487933
 MonoBehaviour:
@@ -800,6 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 2
   state: 0
+  EnlargeOnHover: 1
   ChangeConditions: []
   stateText: {fileID: 0}
 --- !u!4 &1052487934
@@ -1052,6 +1056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 10
   state: 0
+  EnlargeOnHover: 1
   Destination: 3
 --- !u!212 &1465889411
 SpriteRenderer:
@@ -1176,6 +1181,10 @@ PrefabInstance:
     - target: {fileID: 1816514451560048328, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816514451560048341, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_CellSize.y
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 7536684245819945399, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_IsActive
