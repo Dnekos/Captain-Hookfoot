@@ -6,9 +6,12 @@ public class TempleObserver : BaseObserver
 {
     [SerializeField]
     GameObject dialoguebubble;
-    public void GiveShovel()
+    [SerializeField]
+    Sprite newwell;
+    public void GiveShovel(SpriteRenderer well)
     {
         GiveItem(InventoryItem.Shovel);
+        well.sprite = newwell;
     }
     public void GiveKey()
     {

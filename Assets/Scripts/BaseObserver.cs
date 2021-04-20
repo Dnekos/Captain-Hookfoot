@@ -24,4 +24,8 @@ public class BaseObserver : MonoBehaviour
     {
         Player.instance.RemoveInvItem(item);
     }
+    public void OpenDialogue(int index)
+    {
+        GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(index);
+    }
 }

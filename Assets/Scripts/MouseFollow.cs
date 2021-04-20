@@ -23,7 +23,7 @@ public class MouseFollow : MonoBehaviour
     public void setImage(InventoryItem data)
     {
         im.enabled = true;
-        im.sprite = Resources.Load<Sprite>("Inventory/" + data);
+        im.sprite = Resources.Load<Sprite>("Inventory/prop_" + data);
     }
     public void closeImage()
     {
