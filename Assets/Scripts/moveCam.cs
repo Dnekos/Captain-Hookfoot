@@ -23,7 +23,8 @@ public class moveCam : MonoBehaviour
     {
         float diff = speed * Time.deltaTime, spriteradius = border.sprite.bounds.size.x * 0.5f;
         Vector2 mouse = Mouse.current.position.ReadValue();
-        if(Player.instance.gameState == Player.GameState.PLAY)
+        //Debug.Log(mouse);
+        if(Player.instance.gameState == Player.GameState.PLAY && mouse.y > 200)
         {
             if (mouse.x > screenWidth - edgeTriggers && cam.ScreenToWorldPoint(new Vector2(screenWidth, 0)).x + diff + spriteradius * 0.06 < border.transform.position.x + spriteradius)
                 transform.position += Vector3.right * diff;
