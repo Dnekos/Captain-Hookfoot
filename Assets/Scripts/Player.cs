@@ -103,6 +103,13 @@ public class Player : MonoBehaviour
         instance.heldItem = item;
     }
 
+    //sound stuff
+    public static void PlayNoise()
+    {
+        instance.GetComponentInChildren<SoundManager>().PlayButtonSFX();
+    }
+
+
     //these two are needed for the inputs to work
     private void OnEnable()
     {
