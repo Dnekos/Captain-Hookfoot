@@ -20,6 +20,11 @@ public class PauseManager : MonoBehaviour
 #endif
     }
 
+    public void Button_Resume()
+    {
+        Player.instance.GetComponent<Player>().SetPause(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
