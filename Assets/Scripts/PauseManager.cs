@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void Button_Exit()
     {
         Debug.Log("exit");
@@ -25,9 +19,9 @@ public class PauseManager : MonoBehaviour
         Player.instance.GetComponent<Player>().SetPause(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Toggle_FullScreen()
     {
-        
+        Debug.Log("Full screen set to " + !Screen.fullScreen);
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }
