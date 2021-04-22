@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 380665066}
   - component: {fileID: 380665069}
   m_Layer: 0
-  m_Name: Island
+  m_Name: ToIsland
   m_TagString: LogState
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   UID: 3
   state: 0
   EnlargeOnHover: 1
-  Destination: 1
+  Destination: 4
 --- !u!1001 &636552719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   UID: 10
   state: 0
   EnlargeOnHover: 1
-  Destination: 3
+  Destination: 6
 --- !u!212 &1465889411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1130,6 +1130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1816514450266897087, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816514450266897087, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1816514450325505160, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1177,6 +1185,14 @@ PrefabInstance:
     - target: {fileID: 1816514450325505162, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_Name
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816514450649011031, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816514450649011031, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1816514451560048328, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_SizeDelta.y
