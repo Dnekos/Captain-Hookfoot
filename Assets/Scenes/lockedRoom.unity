@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 23.86}
+  m_AnchoredPosition: {x: 0, y: 23.859985}
   m_SizeDelta: {x: 0, y: -47.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269725231
@@ -687,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 0
   state: 0
+  EnlargeOnHover: 1
   textbox: {fileID: 1935976822}
   value: 0
 --- !u!114 &478450999
@@ -832,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816514451560048328, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -78.28356
+      value: -61.32789
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
@@ -855,6 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 0
   state: 0
+  EnlargeOnHover: 1
   target: {fileID: 1281852265}
 --- !u!1 &705507993
 GameObject:
@@ -1085,6 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 0
   state: 0
+  EnlargeOnHover: 1
   textbox: {fileID: 235188739}
   value: 0
 --- !u!114 &997261015
@@ -1228,6 +1231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 0
   state: 0
+  EnlargeOnHover: 1
   textbox: {fileID: 1419298284}
   value: 0
 --- !u!114 &1321100752
@@ -1677,7 +1681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 4
   state: 0
-  Destination: 0
+  EnlargeOnHover: 1
+  Destination: 3
 --- !u!212 &1465889411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1920,6 +1925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 5
   state: 0
+  EnlargeOnHover: 1
 --- !u!61 &1550489272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1964,7 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locks:
-  - {fileID: 0}
+  - {fileID: 1321100751}
   - {fileID: 997261014}
   - {fileID: 478450998}
   - {fileID: 1967825162}
@@ -2240,6 +2246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 0
   state: 0
+  EnlargeOnHover: 1
   textbox: {fileID: 1497854841}
   value: 0
 --- !u!114 &1967825163
@@ -2621,6 +2628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 15
   state: 0
+  EnlargeOnHover: 1
 --- !u!61 &2932699623979045510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2893,6 +2901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 16
   state: 0
+  EnlargeOnHover: 1
 --- !u!61 &7046193106588973049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2995,6 +3004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 17
   state: 0
+  EnlargeOnHover: 1
 --- !u!61 &7467290670026670275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3097,6 +3107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 18
   state: 0
+  EnlargeOnHover: 1
 --- !u!61 &8584796462537390924
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     UIManager UI;
     [SerializeField]
-    GameObject pausePanel;
+    public GameObject pausePanel;
     Dictionary<NodeIDs, int> loggedStates;
 
     Controls inputs;
@@ -50,6 +50,19 @@ public class Player : MonoBehaviour
         Debug.Log("pause");
         if(gameState == GameState.PAUSE)
         {
+            SetPause(false);
+        }
+        else
+        {
+            SetPause(true);
+        }
+
+    }
+
+    public void SetPause(bool paused)
+    {
+        if(paused == false)
+        {
             pausePanel.SetActive(false);
             gameState = previousState;
         }
@@ -59,7 +72,6 @@ public class Player : MonoBehaviour
             gameState = GameState.PAUSE;
             pausePanel.SetActive(true);
         }
-
     }
 
     public void LogState(NodeIDs node, int state)
