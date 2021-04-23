@@ -133,4 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9076589a958f7ef42ba75b7a39f3cd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  UID: 0
+  state: 0
+  EnlargeOnHover: 0
+  invItem: -1

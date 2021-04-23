@@ -18,52 +18,33 @@ public enum NodeIDs
     Sand,
     Mat,
     LockedRoomDoor,
-    PegLegPete,
+    Boomstick,
     MagnifyingGlass,
     Desk,
-    Light
+    Light,
+    Bottle1,
+    Bottle2,
+    Bottle3,
+    Bottle4,
+    Candle
 }
 
-public class ClickableNode : MonoBehaviour, IPointerClickHandler
-{
-    string connection;
-    IDbConnection dbcon;
-    IDataReader reader;
-    
-    string dbName = "Project3.db";
-
+public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+{   
+    [Header("Clickable")]
     [SerializeField]
     protected NodeIDs UID;
     [SerializeField]
     protected int state = 0;
+
+    //sizing
+    [SerializeField]
+    bool EnlargeOnHover = true;
+    float sizedelta = 1.05f;
     
-
-    void InitDatabase()
-    {
-        //Setup file with url
-        connection = "URI=file:" + Application.dataPath + "/" + dbName;
-        dbcon = new SqliteConnection(connection);
-    }
-
-    protected string FetchTextByID(int id, string term, string table = "NodeDialogue")
-    {
-        InitDatabase();
-
-        // READING DATA
-        // Read and print all values in table
-        dbcon.Open();
-        IDbCommand cmnd_read = dbcon.CreateCommand();
-        string query = "SELECT " + term + " FROM " + table + " WHERE ID=" + id;
-        cmnd_read.CommandText = query;
-        reader = cmnd_read.ExecuteReader();
-        string output = reader[0].ToString(); 
-        dbcon.Close();
-        return output;
-    }
-
     public virtual void LookAt()
     {
-        TextDebug(FetchTextByID((int)UID, "LookDialogue"));
+        DisplayThought(FetchTextByID((int)UID, "LookDialogue"));
     }
     public virtual void Interact(InventoryItem item)
     {
@@ -86,7 +67,18 @@ public class ClickableNode : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    protected void TextDebug(string text)
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (EnlargeOnHover)
+            transform.localScale *= sizedelta;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (EnlargeOnHover)
+            transform.localScale /= sizedelta;
+    }
+
+    protected void DisplayThought(string text)
     {
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = text;
     }
