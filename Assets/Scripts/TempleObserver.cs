@@ -12,6 +12,7 @@ public class TempleObserver : BaseObserver
     {
         GiveItem(InventoryItem.Shovel);
         well.sprite = newwell;
+        OpenDialogue(4);
     }
     public void GiveKey()
     {

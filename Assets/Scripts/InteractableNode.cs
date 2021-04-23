@@ -10,7 +10,8 @@ public enum Actions
 {
     Interact,
     UseItem,
-    Look
+    Look,
+    CannotChange
 }
 
 
@@ -25,6 +26,7 @@ public class InteractableNode : ClickableNode
         public bool sRemoveItem = false; // remove item from inventory when used
         public bool sRepeatOnSceneEnter = false; // if the OnChange should be called at start
         public bool sHasNote = false;
+        public int sRepeatConvo = -1;
         [SerializeField]
         private UnityEvent m_OnChange = new UnityEvent();
 
@@ -89,6 +91,9 @@ public class InteractableNode : ClickableNode
             contentPosition.y += 15;
             contentPosition.height += 10;
             EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sHasNote"), new GUIContent("has Note"));
+            contentPosition.y += 20;
+            contentPosition.width *= 0.48f;
+            EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sRepeatConvo"), new GUIContent("Talk"));
 
             //serializedObject.ApplyModifiedProperties();
 
@@ -132,8 +137,13 @@ public class InteractableNode : ClickableNode
     void checkStateCondition(Actions action, InventoryItem item = InventoryItem.None)
     {
         if (state < maxstate)
+        {
             if (ChangeConditions[state].ConditionMet(action, item))
                 AdvanceState();
+            else if (ChangeConditions[state].sRepeatConvo != -1)
+                GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo);
+
+        }
     }
     void AdvanceState()
     {

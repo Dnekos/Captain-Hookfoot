@@ -10,7 +10,17 @@ public enum InventoryItem
     Shovel,
     MagnifyingGlass,
     Candle,
-    Note
+    Note,
+    Poison,
+    Bucket,
+    Acid,
+    SomewhatFilledBucket,
+    FilledBucket,
+    Bottle1,
+    Bottle2,
+    Bottle3,
+    Bottle4,
+    Poe
 };
 
 public class PickupNode : ClickableNode
@@ -28,6 +38,7 @@ public class PickupNode : ClickableNode
     {
         base.Interact(item); // do dialogue
         Player.instance.LogState(UID, 1); // log that item was picked up
+        Debug.LogError(data);
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
         Destroy(gameObject);
     }

@@ -24,6 +24,9 @@ public class UIManager : MonoBehaviour
 
     // content fitter
     GameObject SizeHolder; // prevents the panel from getting too small
+
+    // BUCKET
+    int bucketitems;
     private void Start()
     {
         invImages = new List<GameObject>();
@@ -91,7 +94,16 @@ public class UIManager : MonoBehaviour
 
     public void StartDialogue(int TreeID)
     {
+        Player.instance.gameState = Player.GameState.DIALOGUE;
         DialoguePanel.SetActive(true);
         DialoguePanel.GetComponent<DialogueManager>().StartDialogue(TreeID);
+    }
+
+    public bool IncrementBucket()
+    {
+        bucketitems++;
+        if (bucketitems >= 6)
+            return true;
+        return false;
     }
 }

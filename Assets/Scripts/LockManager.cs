@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class LockManager : MonoBehaviour
         }
         Destroy(display_desk);
 
-        Main.Interact(InventoryItem.None);
+        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it!";
+        for (int i = 0; i < 4; i++)
+            locks[i].GetComponent<Button>().enabled = false;
+        //Main.Interact(InventoryItem.None);
     }
 }
