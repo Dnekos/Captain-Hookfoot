@@ -141,8 +141,7 @@ public class InteractableNode : ClickableNode
             if (ChangeConditions[state].ConditionMet(action, item))
                 AdvanceState();
             else if (ChangeConditions[state].sRepeatConvo != -1)
-                GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo);
-
+                GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo, true);
         }
     }
     void AdvanceState()

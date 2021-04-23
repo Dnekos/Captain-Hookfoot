@@ -236,7 +236,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000004172325, y: 0}
+  m_Offset: {x: -0.037415028, y: 0.010689974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -247,7 +247,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.743235, y: 2.56}
+  m_Size: {x: 1.3904688, y: 2.4103413}
   m_EdgeRadius: 0
 --- !u!1 &235188737
 GameObject:
@@ -681,7 +681,7 @@ SpriteRenderer:
   m_Size: {x: 5.54, y: 7.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &374198346
@@ -946,10 +946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14beba08d9132ca4ca9bd4e6b758a1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 0
-  state: 0
-  EnlargeOnHover: 1
-  textbox: {fileID: 1935976822}
+  textbox:
+  - {fileID: 0}
+  icon: {fileID: 0}
   value: 0
 --- !u!114 &478450999
 MonoBehaviour:
@@ -1346,10 +1345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14beba08d9132ca4ca9bd4e6b758a1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 0
-  state: 0
-  EnlargeOnHover: 1
-  textbox: {fileID: 235188739}
+  textbox:
+  - {fileID: 0}
+  icon: {fileID: 0}
   value: 0
 --- !u!114 &997261015
 MonoBehaviour:
@@ -1490,10 +1488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14beba08d9132ca4ca9bd4e6b758a1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 0
-  state: 0
-  EnlargeOnHover: 1
-  textbox: {fileID: 1419298284}
+  textbox:
+  - {fileID: 0}
+  icon: {fileID: 0}
   value: 0
 --- !u!114 &1321100752
 MonoBehaviour:
@@ -2264,13 +2261,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711674576}
-  m_LocalRotation: {x: -0, y: -0, z: 0.22137795, w: 0.9751881}
-  m_LocalPosition: {x: 0.25, y: -0.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.08893739, w: 0.99603724}
+  m_LocalPosition: {x: 0.31, y: -0.49, z: 0}
+  m_LocalScale: {x: 1.6024, y: 1.6024, z: 1.6024}
   m_Children: []
   m_Father: {fileID: 374198346}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.58}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.205}
 --- !u!61 &1711674578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2288,7 +2285,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.54, y: 7.63}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 5.54, y: 7.63}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2337,7 +2334,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a26a2e2e5e693a47adfc58832b3986b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce05fdeb405944b4693b28ed8a343bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2621,10 +2618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14beba08d9132ca4ca9bd4e6b758a1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 0
-  state: 0
-  EnlargeOnHover: 1
-  textbox: {fileID: 1497854841}
+  textbox:
+  - {fileID: 0}
+  icon: {fileID: 0}
   value: 0
 --- !u!114 &1967825163
 MonoBehaviour:
