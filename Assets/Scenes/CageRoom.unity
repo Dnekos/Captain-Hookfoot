@@ -856,6 +856,7 @@ MonoBehaviour:
     sRemoveItem: 0
     sRepeatOnSceneEnter: 0
     sHasNote: 0
+    sRepeatConvo: -1
     m_OnChange:
       m_PersistentCalls:
         m_Calls:
@@ -867,6 +868,27 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - sAction: 1
+    sItem: 11
+    sRemoveItem: 0
+    sRepeatOnSceneEnter: 0
+    sHasNote: 0
+    sRepeatConvo: 7
+    m_OnChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1346431820}
+          m_TargetAssemblyTypeName: BaseObserver, Assembly-CSharp
+          m_MethodName: OpenDialogue
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
