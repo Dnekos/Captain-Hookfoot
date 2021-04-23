@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RotaryLock : ClickableNode
+public class RotaryLock : MonoBehaviour
 {
     [SerializeField]
-    Text textbox;
+    Sprite[] textbox;
+    [SerializeField]
+    Image icon;
     public int value = 0;
-    override public void Interact(InventoryItem item)
+    public void click()
     {
-        value = (value + 1) % 10;
-        textbox.text = value.ToString();
-    }
-    public override void LookAt()
-    {
-        //base.LookAt();
+        value = (value + 1) % 4;
+        icon.sprite = textbox[value];
     }
 
 }

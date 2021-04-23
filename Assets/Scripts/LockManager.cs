@@ -7,7 +7,7 @@ public class LockManager : MonoBehaviour
 {
     [SerializeField]
     RotaryLock[] locks;
-    int[] combination = { 0, 7, 2, 5 };
+    //int[] combination = { 1, 2, 3, 4 };
     [SerializeField]
     GameObject display_desk;
     [SerializeField]
@@ -20,7 +20,7 @@ public class LockManager : MonoBehaviour
 
         for (int i  = 0;  i < 4; i++)
         {
-            if (locks[i].value != combination[i])
+            if (locks[i].value != i)
                 return;
         }
         Destroy(display_desk);
