@@ -14,6 +14,9 @@ public class LockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!locks[0].isActiveAndEnabled)//.gameObject.activeInHierarchy)
+            return; 
+
         for (int i  = 0;  i < 4; i++)
         {
             if (locks[i].value != combination[i])
