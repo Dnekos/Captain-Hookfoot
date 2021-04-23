@@ -34,7 +34,8 @@ public enum NodeIDs
     Bucket,
     CaptainsQuarters,
     HoleToCageRoom,
-    Cage
+    Cage,
+    Murphy
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler

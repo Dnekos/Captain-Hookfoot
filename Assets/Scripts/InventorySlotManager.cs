@@ -22,7 +22,7 @@ public class InventorySlotManager : ClickableNode
             {
                 UIManager ui = GameObject.Find("InventoryMenu").GetComponent<UIManager>();
                 ui.AddInventoryImage(InventoryItem.SomewhatFilledBucket); // create UI object
-                ui.RemoveInventoryImage(invItem);
+                ui.RemoveInventoryImage(item);
                 ui.RemoveInventoryImage(InventoryItem.Bucket);
 
                 if (ui.IncrementBucket())

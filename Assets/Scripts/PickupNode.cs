@@ -38,7 +38,6 @@ public class PickupNode : ClickableNode
     {
         base.Interact(item); // do dialogue
         Player.instance.LogState(UID, 1); // log that item was picked up
-        Debug.LogError(data);
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
         Destroy(gameObject);
     }
