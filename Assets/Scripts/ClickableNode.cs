@@ -26,7 +26,13 @@ public enum NodeIDs
     Bottle2,
     Bottle3,
     Bottle4,
-    Candle
+    Candle,
+    CageRoomToWell,
+    Poe,
+    Acid,
+    Poison,
+    Bucket,
+    CaptainsQuarters
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
