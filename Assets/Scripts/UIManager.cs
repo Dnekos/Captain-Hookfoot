@@ -82,6 +82,7 @@ public class UIManager : MonoBehaviour
             {
                 Destroy(slot);
                 invImages.Remove(slot);
+                row = 0;
                 break;
             }
     }
