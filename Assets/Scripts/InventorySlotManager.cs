@@ -17,8 +17,8 @@ public class InventorySlotManager : ClickableNode
         {
             base.Interact(item);
             Debug.Log("item is " + (int)invItem);
-            Debug.Log(FetchTextByID((int)invItem, "MergeBucket", "InventoryDialogue"));
-            if (FetchTextByID((int)item, "MergeBucket", "InventoryDialogue") == "Y" && invItem == InventoryItem.Bucket || invItem == InventoryItem.SomewhatFilledBucket)
+            Debug.Log(FetchTextByID((int)invItem, "MergeBucket", "InventoryDialogue") == "Y");
+            if (FetchTextByID((int)item, "MergeBucket", "InventoryDialogue") == "Y" && (invItem == InventoryItem.Bucket || invItem == InventoryItem.SomewhatFilledBucket))
             {
                 UIManager ui = GameObject.Find("InventoryMenu").GetComponent<UIManager>();
                 ui.AddInventoryImage(InventoryItem.SomewhatFilledBucket); // create UI object

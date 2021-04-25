@@ -10,10 +10,15 @@ public class RotaryLock : MonoBehaviour
     [SerializeField]
     Image icon;
     public int value = 0;
+    [SerializeField]
+    Camera cam;
     public void click()
     {
-        value = (value + 1) % 4;
-        icon.sprite = textbox[value];
+        if (cam.gameObject.activeInHierarchy)
+        {
+            value = (value + 1) % 4;
+            icon.sprite = textbox[value];
+        }
     }
 
 }
