@@ -10,7 +10,17 @@ public enum InventoryItem
     Shovel,
     MagnifyingGlass,
     Candle,
-    Note
+    Note,
+    Poison,
+    Bucket,
+    Acid,
+    SomewhatFilledBucket,
+    FilledBucket,
+    Bottle1,
+    Bottle2,
+    Bottle3,
+    Bottle4,
+    Poe
 };
 
 public class PickupNode : ClickableNode

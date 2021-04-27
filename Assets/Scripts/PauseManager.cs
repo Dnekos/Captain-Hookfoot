@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void Button_Exit()
     {
         Debug.Log("exit");
@@ -20,9 +15,25 @@ public class PauseManager : MonoBehaviour
 #endif
     }
 
+    public void Button_Resume()
+    {
+        Player.instance.GetComponent<Player>().SetPause(false);
+    }
+
+    public void Toggle_FullScreen()
+    {
+        Debug.Log("Full screen set to " + !Screen.fullScreen);
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void GoToScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("Full screen set to " + !Screen.fullScreen);
+        //Screen.fullScreen = !Screen.fullScreen;
     }
 }

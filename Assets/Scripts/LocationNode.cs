@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public enum Locations
 {
-    WellRoom,
+    WellRoom = 3,
     Island,
     ship,
-    lockedRoom
+    lockedRoom,
+    CageRoom
 }
 
 public class LocationNode : ClickableNode
