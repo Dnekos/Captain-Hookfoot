@@ -133,6 +133,9 @@ public class InteractableNode : ClickableNode
             checkStateCondition(Actions.Interact);
         else
             checkStateCondition(Actions.UseItem, item);
+        if (state < maxstate && ChangeConditions[state].sRepeatConvo != -1)
+            GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo, true);
+
     }
     void checkStateCondition(Actions action, InventoryItem item = InventoryItem.None)
     {
@@ -140,8 +143,6 @@ public class InteractableNode : ClickableNode
         {
             if (ChangeConditions[state].ConditionMet(action, item))
                 AdvanceState();
-            else if (ChangeConditions[state].sRepeatConvo != -1)
-                GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo, true);
         }
     }
     void AdvanceState()

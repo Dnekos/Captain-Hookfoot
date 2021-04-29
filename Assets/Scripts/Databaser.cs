@@ -36,7 +36,7 @@ public class Databaser : MonoBehaviour
         dbcon = new SqliteConnection(connection);
     }
 
-    protected string FetchTextByID(int id, string term, string table = "NodeDialogue")
+    protected string FetchTextByID(int id, string term, string table = "NodeDialogue", int state = 0)
     {
         InitDatabase();
 
@@ -44,7 +44,12 @@ public class Databaser : MonoBehaviour
         // Read and print all values in table
         dbcon.Open();
         IDbCommand cmnd_read = dbcon.CreateCommand();
+
         string query = "SELECT " + term + " FROM " + table + " WHERE ID=" + id;
+        if (state != 0)
+            query += " AND State=" + state.ToString();
+
+
         cmnd_read.CommandText = query;
         reader = cmnd_read.ExecuteReader();
         string output = reader[0].ToString();

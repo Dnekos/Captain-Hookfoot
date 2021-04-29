@@ -35,7 +35,8 @@ public enum NodeIDs
     CaptainsQuarters,
     HoleToCageRoom,
     Cage,
-    Murphy
+    Murphy,
+    Crew
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -53,7 +54,7 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     
     public virtual void LookAt()
     {
-        DisplayThought(FetchTextByID((int)UID, "LookDialogue"));
+        DisplayThought(FetchTextByID((int)UID, "LookDialogue", "NodeDialogue", state));
     }
     public virtual void Interact(InventoryItem item)
     {

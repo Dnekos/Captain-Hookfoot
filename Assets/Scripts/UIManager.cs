@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     // BUCKET
     int bucketitems;
+    int BucketCapacity = 2;
 
     // Track dialogue
     List<int> UsedDialogue;
@@ -80,6 +81,15 @@ public class UIManager : MonoBehaviour
         slot.transform.SetAsFirstSibling(); // put as first item in inventory
         invImages.Add(slot);
         previouslyhelditems.Add(data);
+
+        if (data == InventoryItem.Bucket)
+        {
+            for (int i = 12; i < 16; i++)
+            {
+                if (previouslyhelditems.Contains((InventoryItem)i))
+                    BucketCapacity++;
+            }
+        }
     }
     public void RemoveInventoryImage(InventoryItem index)
     {
@@ -118,7 +128,7 @@ public class UIManager : MonoBehaviour
     public bool IncrementBucket()
     {
         bucketitems++;
-        if (bucketitems >= 6)
+        if (bucketitems >= BucketCapacity)
             return true;
         return false;
     }
