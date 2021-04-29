@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lockedRoom.unity
     guid: 2027e2bfc30170942aa947a22ffd10c0
+  - enabled: 1
+    path: Assets/Scenes/CageRoom.unity
+    guid: a07ebf2d04e54094eab3138d05516d3b
   m_configObjects: {}

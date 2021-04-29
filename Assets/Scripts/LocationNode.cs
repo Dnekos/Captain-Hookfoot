@@ -10,7 +10,8 @@ public enum Locations
     WellRoom = 3,
     Island,
     ship,
-    lockedRoom
+    lockedRoom,
+    CageRoom
 }
 
 public class LocationNode : ClickableNode

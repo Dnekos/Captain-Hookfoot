@@ -32,7 +32,10 @@ public enum NodeIDs
     Acid,
     Poison,
     Bucket,
-    CaptainsQuarters
+    CaptainsQuarters,
+    HoleToCageRoom,
+    Cage,
+    Murphy
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler

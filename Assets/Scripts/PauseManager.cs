@@ -26,15 +26,14 @@ public class PauseManager : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
-public void GoToScene(int index)
+    public void GoToScene(int index)
     {
         SceneManager.LoadScene(index);
     }
     // Update is called once per frame
     void Update()
-
     {
         Debug.Log("Full screen set to " + !Screen.fullScreen);
-        Screen.fullScreen = !Screen.fullScreen;
+        //Screen.fullScreen = !Screen.fullScreen;
     }
 }

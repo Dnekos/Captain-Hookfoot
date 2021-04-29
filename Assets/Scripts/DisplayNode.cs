@@ -9,9 +9,6 @@ public class DisplayNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        GameObject maincam = Camera.main.gameObject;
-        //Camera.main.enabled = false;    
-
         Camera.main.gameObject.SetActive(false);
 
         target.gameObject.SetActive(true);
