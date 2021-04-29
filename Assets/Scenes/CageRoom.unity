@@ -463,7 +463,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e999437f00e3ec24295c1e9914cddbcd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b4f0a3d5698cab4e8e4399be9d7c771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -482,8 +482,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272225973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.3474, y: 0.4007, z: 0}
-  m_LocalScale: {x: 0.10290746, y: 0.10290746, z: 0.10290746}
+  m_LocalPosition: {x: -40.22, y: -0.4, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -532,18 +532,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4919181, y: 0}
+  m_Offset: {x: 0.02355808, y: -0.065497756}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.22, y: 24.008705}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 14.22, y: 24.008705}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.139236, y: 24.008705}
+  m_Size: {x: 3.0978508, y: 2.8014452}
   m_EdgeRadius: 0
 --- !u!224 &301088658 stripped
 RectTransform:
@@ -1652,7 +1652,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8faad83cbf6cd434e89464136ba1fbaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d50503c590242047a4038e3ebf88f6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1671,8 +1671,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334674445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.87, y: 3.73, z: 0}
-  m_LocalScale: {x: 0.083381176, y: 0.083381176, z: 0.083381176}
+  m_LocalPosition: {x: -34.87, y: 2.76, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -1690,18 +1690,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6681819, y: 0}
+  m_Offset: {x: -0.0632813, y: 0.043083727}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.290001, y: 24.002188}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 10.290001, y: 24.002188}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.138045, y: 24.002188}
+  m_Size: {x: 2.4645295, y: 2.6545138}
   m_EdgeRadius: 0
 --- !u!1 &1346431816
 GameObject:
@@ -2297,7 +2297,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7dcc6febe9469243b38a350b508dd85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb3f6bf330ce4b24eb75eee970aa2cf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2316,8 +2316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716860982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.35, y: 2.63, z: 0}
-  m_LocalScale: {x: 0.2857, y: 0.2857, z: 0.2857}
+  m_LocalPosition: {x: -40.74, y: 2.43, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -2335,18 +2335,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26578665, y: 0.4429741}
+  m_Offset: {x: -0.056390524, y: 0.0036436915}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.7147083, y: 6.005948}
+  m_Size: {x: 2.3799958, y: 2.7256145}
   m_EdgeRadius: 0
 --- !u!1 &1935976820
 GameObject:
