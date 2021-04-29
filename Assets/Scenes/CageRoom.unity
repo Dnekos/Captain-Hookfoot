@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4d7bf712b09db449585ac8d4ab7c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 0
+  UID: 27
   state: 0
   EnlargeOnHover: 1
   ChangeConditions:
