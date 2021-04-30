@@ -28,6 +28,7 @@ public class DialogueManager : Databaser
 
     private void Awake()
     {
+        table = new List<DialogueLine>();
         NametagText.text = "";
         PlayerBody.text = "";
         CrewBody.text = "";
@@ -38,6 +39,9 @@ public class DialogueManager : Databaser
 
     public void StartDialogue(int TreeID)
     {
+        if (table.Count != 0) // prevent repeatables overwriting state convos
+            return;
+
         table = FetchDialog(TreeID);
 
         if (table[0].Left != "")

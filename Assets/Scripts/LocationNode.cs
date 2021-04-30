@@ -22,6 +22,7 @@ public class LocationNode : ClickableNode
     override public void Interact(InventoryItem item)
     {
         SceneManager.LoadScene((int)Destination);
+        base.Interact(item);
     }
     public override void LookAt()
     {

@@ -26,6 +26,16 @@ public class PauseManager : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
+    public void ToggleCursor(bool enable)
+    {
+        if (enable)
+            Cursor.SetCursor(Resources.Load<Texture2D>("Inventory/cursor_gun"), Vector2.zero, CursorMode.Auto);
+        else
+            Cursor.SetCursor(Resources.Load<Texture2D>("Inventory/prop_gun"), Vector2.zero, CursorMode.Auto);
+
+        //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
     public void GoToScene(int index)
     {
         SceneManager.LoadScene(index);
