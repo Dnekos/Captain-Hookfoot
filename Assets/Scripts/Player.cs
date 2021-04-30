@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public GameObject pausePanel;
     Dictionary<NodeIDs, int> loggedStates;
 
+    bool savedPoe;
+
     Controls inputs;
 
     public enum GameState
@@ -106,7 +108,10 @@ public class Player : MonoBehaviour
     {
         return heldItem;
     }
+    public void TriggerSavedCrew()
+    {
 
+    }
 
     public void SetHeldItem(InventoryItem item = InventoryItem.None)
     {
