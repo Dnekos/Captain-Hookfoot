@@ -83,6 +83,12 @@ public class Player : MonoBehaviour
         else
             loggedStates[node] = state;
     }
+    public void CreateButNotModifyState(NodeIDs node, int state)
+    {
+        if (loggedStates.ContainsKey(node))
+            return;
+        loggedStates.Add(node, state);
+    }
 
     public int GetState(NodeIDs node)
     {
@@ -108,11 +114,6 @@ public class Player : MonoBehaviour
     {
         return heldItem;
     }
-    public void TriggerSavedCrew()
-    {
-
-    }
-
     public void SetHeldItem(InventoryItem item = InventoryItem.None)
     {
         if (item == InventoryItem.None)

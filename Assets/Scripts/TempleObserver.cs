@@ -24,4 +24,10 @@ public class TempleObserver : BaseObserver
     {
         AddNode(dialoguebubble);
     }
+    public void TalkToCrew()
+    {
+        //OpenDialogue(4); // meet up with crew
+        RemoveItem(InventoryItem.Poe);
+        GiveItem(InventoryItem.Crew);
+    }
 }

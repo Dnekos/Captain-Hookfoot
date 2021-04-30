@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CagedObserver : BaseObserver
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    Sprite openCage;
+    [SerializeField]
+    GameObject anchor;
 
-    // Update is called once per frame
-    void Update()
+    public void FreePoe(SpriteRenderer cage)
     {
-        
+        OpenDialogue(8);
+        disableObject(anchor);
+        cage.sprite = openCage;
+        GiveItem(InventoryItem.Poe);
+
+        Player.instance.CreateButNotModifyState(NodeIDs.Crew, 1);
+        Player.instance.CreateButNotModifyState(NodeIDs.Murphy, 1);
+        Player.instance.CreateButNotModifyState(NodeIDs.Anchor, 1);
     }
 }

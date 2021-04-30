@@ -16,6 +16,11 @@ public class BaseObserver : MonoBehaviour
     {
         obj.SetActive(false);
     }
+    public void enableObject(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
     protected void GiveItem(InventoryItem item)
     {
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(item); // create UI object

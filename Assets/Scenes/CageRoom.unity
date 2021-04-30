@@ -639,6 +639,7 @@ MonoBehaviour:
   UID: 27
   state: 0
   EnlargeOnHover: 1
+  DisableAtStart: 0
   ChangeConditions:
   - sAction: 0
     sItem: 0
@@ -664,19 +665,19 @@ MonoBehaviour:
   - sAction: 1
     sItem: 11
     sRemoveItem: 0
-    sRepeatOnSceneEnter: 0
+    sRepeatOnSceneEnter: 1
     sHasNote: 0
     sRepeatConvo: 7
     m_OnChange:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1346431820}
-          m_TargetAssemblyTypeName: BaseObserver, Assembly-CSharp
-          m_MethodName: OpenDialogue
-          m_Mode: 3
+          m_TargetAssemblyTypeName: CagedObserver, Assembly-CSharp
+          m_MethodName: FreePoe
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 420237588}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
             m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 
@@ -690,6 +691,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1816514449677575916, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.399994
+      objectReference: {fileID: 0}
     - target: {fileID: 1816514450325505160, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -839,7 +844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &788482301
 GameObject:
@@ -921,7 +926,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334674445
 GameObject:
@@ -1136,6 +1141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b4d62a0e9cbe41a814d58b46ac4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openCage: {fileID: 21300000, guid: 4087f6b9f48934540b19fecf81c72618, type: 3}
+  anchor: {fileID: 374198344}
 --- !u!1 &1550489268
 GameObject:
   m_ObjectHideFlags: 0

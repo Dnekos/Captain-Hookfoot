@@ -101,10 +101,12 @@ public class InteractableNode : ClickableNode
     }
 #endif
 
-    int maxstate; // prevents changing state when at last state
+    [Header("Interactable")]
+    [SerializeField]
+    bool DisableAtStart = false;
     [SerializeField]
     StateChange[] ChangeConditions; // lists conditional data to move on to next state
-
+    int maxstate; // prevents changing state when at last state
 
     [Header("Debug")]
     [SerializeField]
@@ -115,9 +117,13 @@ public class InteractableNode : ClickableNode
         maxstate = ChangeConditions.Length;
         
         state = Player.instance.GetState(UID); // check if this item has had its state changed
+        
         // check if the current state has a result that is persistent
         if (state != 0 && ChangeConditions[state - 1].sRepeatOnSceneEnter) 
             ChangeConditions[state - 1].InvokeChange();
+
+        if (DisableAtStart && state == 0)
+            gameObject.SetActive(false);
     }
 
     override public void LookAt()

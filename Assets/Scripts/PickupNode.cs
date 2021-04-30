@@ -20,7 +20,8 @@ public enum InventoryItem
     Bottle2,
     Bottle3,
     Bottle4,
-    Poe
+    Poe,
+    Crew
 };
 
 public class PickupNode : ClickableNode
