@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1978d7d612bed54b84fc585d2e9436a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bedd39cf4882bf1428a54d973817b05e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -217,8 +217,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20660009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.06, y: 3.5499997, z: 0}
-  m_LocalScale: {x: 1.8594, y: 1.8594, z: 1.8594}
+  m_LocalPosition: {x: -26.66, y: 4.35, z: 0}
+  m_LocalScale: {x: 0.5678111, y: 0.5678111, z: 0.5678111}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -236,18 +236,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.037415028, y: 0.010689974}
+  m_Offset: {x: -0.6214583, y: -1.7089913}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3904688, y: 2.4103413}
+  m_Size: {x: 4.6351504, y: 5.8497043}
   m_EdgeRadius: 0
 --- !u!1 &272225973
 GameObject:
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 788482302}
     - target: {fileID: 1369167702302771859, guid: 6bb8e8cccf00b3e4d99136bdeb37fb8e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1369167702302771859, guid: 6bb8e8cccf00b3e4d99136bdeb37fb8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -692,7 +692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1816514450325505160, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1816514450325505160, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_LocalPosition.x
@@ -835,11 +835,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -27.93, y: 3, z: -16.13}
+  m_LocalPosition: {x: -35.05, y: 14.96, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &788482301
 GameObject:
@@ -1122,7 +1122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1346431820
 MonoBehaviour:
@@ -1518,7 +1518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405072497984643103, guid: fd9a38ccbbc326e4b93d66c3c3a6bdfd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3405072497984643103, guid: fd9a38ccbbc326e4b93d66c3c3a6bdfd, type: 3}
       propertyPath: m_AnchorMax.x
