@@ -59,7 +59,7 @@ public class DialogueManager : Databaser
         if (counting)
         {
             counting = false;
-            if (table[0].Name == "Marg")
+            if (table[0].Name == "Bottom")
                 PlayerBody.text = table[0].Body;
             else
                 CrewBody.text = table[0].Body;
@@ -80,7 +80,7 @@ public class DialogueManager : Databaser
             counting = true;
 
         NametagText.text = "";
-        if (table[0].Name == "Marg")
+        if (table[0].Name == "Bottom")
             PlayerBody.text = "";
         else
             CrewBody.text = "";
@@ -101,7 +101,7 @@ public class DialogueManager : Databaser
         {
             NametagText.text = table[0].Name.ToString();//loadedText[0].Value;
 
-            if (table[0].Name == "Marg")
+            if (table[0].Name == "Bottom")
                 PlayerBody.text += table[0].Body.ToString()[textIndex]; // add next letter
             else
                 CrewBody.text += table[0].Body.ToString()[textIndex]; // add next letter

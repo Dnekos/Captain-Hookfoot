@@ -59,8 +59,8 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     public virtual void Interact(InventoryItem item)
     {
         string thought = FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state);
-        if (thought != null)
-            DisplayThought(FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state));
+        //if (thought != null)
+        DisplayThought(thought);
     }
 
     public void OnPointerClick(PointerEventData eventData)

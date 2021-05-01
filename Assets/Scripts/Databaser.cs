@@ -38,7 +38,7 @@ public class Databaser : MonoBehaviour
 
     protected string FetchTextByID(int id, string term, string table = "NodeDialogue", int state = 0)
     {
-        string query = "SELECT " + term + " FROM " + table + " WHERE ID=" + id;
+        string query = "SELECT " + term + " FROM " + table + " WHERE UID=" + id;
         if (state != 0)
             query += " AND State=" + state.ToString();
 

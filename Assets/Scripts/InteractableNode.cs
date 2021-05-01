@@ -133,7 +133,6 @@ public class InteractableNode : ClickableNode
     }
     override public void Interact(InventoryItem item)
     {
-        base.Interact(item);
 
         if (item == InventoryItem.None)
             checkStateCondition(Actions.Interact);
@@ -155,6 +154,7 @@ public class InteractableNode : ClickableNode
     {
         ChangeConditions[state].InvokeChange(); // activate Event
         state++;
+        base.Interact(InventoryItem.None); // call advancestate
 
         Player.instance.LogState(UID, state); // log the current state for transitions
 

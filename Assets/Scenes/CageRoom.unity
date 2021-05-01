@@ -466,6 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374198346}
   - component: {fileID: 374198347}
+  - component: {fileID: 374198345}
   m_Layer: 0
   m_Name: anchor
   m_TagString: Untagged
@@ -473,6 +474,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &374198345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374198344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4d7bf712b09db449585ac8d4ab7c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UID: 2
+  state: 0
+  EnlargeOnHover: 1
+  DisableAtStart: 0
+  ChangeConditions:
+  - sAction: 1
+    sItem: 16
+    sRemoveItem: 0
+    sRepeatOnSceneEnter: 1
+    sHasNote: 0
+    sRepeatConvo: 0
+    m_OnChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1346431820}
+          m_TargetAssemblyTypeName: BaseObserver, Assembly-CSharp
+          m_MethodName: disableObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 374198344}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  stateText: {fileID: 0}
 --- !u!4 &374198346
 Transform:
   m_ObjectHideFlags: 0
@@ -664,7 +704,7 @@ MonoBehaviour:
           m_CallState: 2
   - sAction: 1
     sItem: 11
-    sRemoveItem: 0
+    sRemoveItem: 1
     sRepeatOnSceneEnter: 1
     sHasNote: 0
     sRepeatConvo: 7
@@ -926,7 +966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334674445
 GameObject:

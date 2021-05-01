@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    static public void ClosePlayer()
+    {
+        Destroy(instance.gameObject);
+        instance = null;
+    }
     private void OnPause()
     {
         Debug.Log("pause");

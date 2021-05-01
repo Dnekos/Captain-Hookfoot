@@ -552,7 +552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1346431816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923d065e40f5e5346af3cd2f0852f298, type: 3}
+  m_Script: {fileID: 11500000, guid: 20c9dbba5b6c06b4199f5808e35bff18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1512622422
@@ -589,7 +589,50 @@ MonoBehaviour:
   UID: 25
   state: 0
   EnlargeOnHover: 1
-  ChangeConditions: []
+  DisableAtStart: 0
+  ChangeConditions:
+  - sAction: 0
+    sItem: 0
+    sRemoveItem: 0
+    sRepeatOnSceneEnter: 0
+    sHasNote: 0
+    sRepeatConvo: -1
+    m_OnChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1346431820}
+          m_TargetAssemblyTypeName: BaseObserver, Assembly-CSharp
+          m_MethodName: OpenDialogue
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - sAction: 1
+    sItem: 17
+    sRemoveItem: 0
+    sRepeatOnSceneEnter: 0
+    sHasNote: 0
+    sRepeatConvo: 10
+    m_OnChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1346431820}
+          m_TargetAssemblyTypeName: ShipObserver, Assembly-CSharp
+          m_MethodName: EndGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   stateText: {fileID: 0}
 --- !u!212 &1512622424
 SpriteRenderer:
