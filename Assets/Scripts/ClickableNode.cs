@@ -26,7 +26,17 @@ public enum NodeIDs
     Bottle2,
     Bottle3,
     Bottle4,
-    Candle
+    Candle,
+    CageRoomToWell,
+    Poe,
+    Acid,
+    Poison,
+    Bucket,
+    CaptainsQuarters,
+    HoleToCageRoom,
+    Cage,
+    Murphy,
+    Crew
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -44,11 +54,13 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     
     public virtual void LookAt()
     {
-        DisplayThought(FetchTextByID((int)UID, "LookDialogue"));
+        DisplayThought(FetchTextByID((int)UID, "LookDialogue", "NodeDialogue", state));
     }
     public virtual void Interact(InventoryItem item)
     {
-        Debug.Log("clicked"); // get dialogue
+        string thought = FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state);
+        //if (thought != null)
+        DisplayThought(thought);
     }
 
     public void OnPointerClick(PointerEventData eventData)

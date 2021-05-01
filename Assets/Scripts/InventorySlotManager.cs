@@ -16,8 +16,24 @@ public class InventorySlotManager : ClickableNode
         else
         {
             base.Interact(item);
+            Debug.Log("item is " + (int)invItem);
+            string buckettext = FetchTextByID((int)item, "MergeBucket", "InventoryDialogue");
+            if ((buckettext != "" || buckettext != null) && (invItem == InventoryItem.Bucket || invItem == InventoryItem.SomewhatFilledBucket))
+            {
+                UIManager ui = GameObject.Find("InventoryMenu").GetComponent<UIManager>();
+                ui.AddInventoryImage(InventoryItem.SomewhatFilledBucket); // create UI object
+                ui.RemoveInventoryImage(item);
+                ui.RemoveInventoryImage(InventoryItem.Bucket);
 
-            // CHECK IF THEY ARE COMPATIBLE, PERHAPS USE A DATABASE
+                DisplayThought(buckettext);
+
+                if (ui.IncrementBucket())
+                {
+                    ui.RemoveInventoryImage(InventoryItem.SomewhatFilledBucket);
+                    ui.AddInventoryImage(InventoryItem.FilledBucket); // create UI object
+                }
+
+            }
         }
     }
     public override void LookAt()

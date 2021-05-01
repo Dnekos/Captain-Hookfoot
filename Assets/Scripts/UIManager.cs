@@ -24,10 +24,19 @@ public class UIManager : MonoBehaviour
 
     // content fitter
     GameObject SizeHolder; // prevents the panel from getting too small
+
+    // BUCKET
+    int bucketitems;
+    int BucketCapacity = 2;
+
+    // Track dialogue
+    List<int> UsedDialogue;
     private void Start()
     {
         invImages = new List<GameObject>();
         previouslyhelditems = new List<InventoryItem>();
+        UsedDialogue = new List<int>();
+
         startingposition = Vector3.zero;//invPanel.localPosition;
         SizeHolder = null;
         DialoguePanel.SetActive(false);
@@ -68,8 +77,19 @@ public class UIManager : MonoBehaviour
         InventorySlotPrefab.GetComponent<Image>().sprite = Resources.Load<Sprite>("Inventory/prop_"+data);
         InventorySlotPrefab.GetComponent<InventorySlotManager>().invItem = data;
 
-        invImages.Add(Instantiate(InventorySlotPrefab, invPanel));
+        GameObject slot = Instantiate(InventorySlotPrefab, invPanel); // create item slot
+        slot.transform.SetAsFirstSibling(); // put as first item in inventory
+        invImages.Add(slot);
         previouslyhelditems.Add(data);
+
+        if (data == InventoryItem.Bucket)
+        {
+            for (int i = 12; i < 16; i++)
+            {
+                if (previouslyhelditems.Contains((InventoryItem)i))
+                    BucketCapacity++;
+            }
+        }
     }
     public void RemoveInventoryImage(InventoryItem index)
     {
@@ -79,6 +99,8 @@ public class UIManager : MonoBehaviour
             {
                 Destroy(slot);
                 invImages.Remove(slot);
+                if (invImages.Count <= 4)
+                    row = 0;
                 break;
             }
     }
@@ -89,9 +111,25 @@ public class UIManager : MonoBehaviour
             row += dir;
     }
 
-    public void StartDialogue(int TreeID)
+    public void StartDialogue(int TreeID, bool repeatable = false)
     {
+        if (!repeatable)
+        {
+            if (UsedDialogue.Contains(TreeID))
+                return;
+            UsedDialogue.Add(TreeID);
+        }
+
+        Player.instance.gameState = Player.GameState.DIALOGUE;
         DialoguePanel.SetActive(true);
         DialoguePanel.GetComponent<DialogueManager>().StartDialogue(TreeID);
+    }
+
+    public bool IncrementBucket()
+    {
+        bucketitems++;
+        if (bucketitems >= BucketCapacity)
+            return true;
+        return false;
     }
 }

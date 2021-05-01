@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     UIManager UI;
     [SerializeField]
-    GameObject pausePanel;
+    public GameObject pausePanel;
     Dictionary<NodeIDs, int> loggedStates;
+
+    bool savedPoe;
 
     Controls inputs;
 
@@ -45,10 +47,28 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    static public void ClosePlayer()
+    {
+        Destroy(instance.gameObject);
+        instance = null;
+    }
     private void OnPause()
     {
         Debug.Log("pause");
         if(gameState == GameState.PAUSE)
+        {
+            SetPause(false);
+        }
+        else
+        {
+            SetPause(true);
+        }
+
+    }
+
+    public void SetPause(bool paused)
+    {
+        if(paused == false)
         {
             pausePanel.SetActive(false);
             gameState = previousState;
@@ -59,7 +79,6 @@ public class Player : MonoBehaviour
             gameState = GameState.PAUSE;
             pausePanel.SetActive(true);
         }
-
     }
 
     public void LogState(NodeIDs node, int state)
@@ -68,6 +87,12 @@ public class Player : MonoBehaviour
             loggedStates.Add(node, state);
         else
             loggedStates[node] = state;
+    }
+    public void CreateButNotModifyState(NodeIDs node, int state)
+    {
+        if (loggedStates.ContainsKey(node))
+            return;
+        loggedStates.Add(node, state);
     }
 
     public int GetState(NodeIDs node)
@@ -94,8 +119,6 @@ public class Player : MonoBehaviour
     {
         return heldItem;
     }
-
-
     public void SetHeldItem(InventoryItem item = InventoryItem.None)
     {
         if (item == InventoryItem.None)

@@ -10,7 +10,8 @@ public enum Actions
 {
     Interact,
     UseItem,
-    Look
+    Look,
+    CannotChange
 }
 
 
@@ -25,6 +26,7 @@ public class InteractableNode : ClickableNode
         public bool sRemoveItem = false; // remove item from inventory when used
         public bool sRepeatOnSceneEnter = false; // if the OnChange should be called at start
         public bool sHasNote = false;
+        public int sRepeatConvo = -1;
         [SerializeField]
         private UnityEvent m_OnChange = new UnityEvent();
 
@@ -89,6 +91,9 @@ public class InteractableNode : ClickableNode
             contentPosition.y += 15;
             contentPosition.height += 10;
             EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sHasNote"), new GUIContent("has Note"));
+            contentPosition.y += 20;
+            contentPosition.width *= 0.48f;
+            EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("sRepeatConvo"), new GUIContent("Talk"));
 
             //serializedObject.ApplyModifiedProperties();
 
@@ -96,10 +101,12 @@ public class InteractableNode : ClickableNode
     }
 #endif
 
-    int maxstate; // prevents changing state when at last state
+    [Header("Interactable")]
+    [SerializeField]
+    bool DisableAtStart = false;
     [SerializeField]
     StateChange[] ChangeConditions; // lists conditional data to move on to next state
-
+    int maxstate; // prevents changing state when at last state
 
     [Header("Debug")]
     [SerializeField]
@@ -110,9 +117,13 @@ public class InteractableNode : ClickableNode
         maxstate = ChangeConditions.Length;
         
         state = Player.instance.GetState(UID); // check if this item has had its state changed
+        
         // check if the current state has a result that is persistent
         if (state != 0 && ChangeConditions[state - 1].sRepeatOnSceneEnter) 
             ChangeConditions[state - 1].InvokeChange();
+
+        if (DisableAtStart && state == 0)
+            gameObject.SetActive(false);
     }
 
     override public void LookAt()
@@ -122,23 +133,28 @@ public class InteractableNode : ClickableNode
     }
     override public void Interact(InventoryItem item)
     {
-        base.Interact(item);
 
         if (item == InventoryItem.None)
             checkStateCondition(Actions.Interact);
         else
             checkStateCondition(Actions.UseItem, item);
+        if (state < maxstate && ChangeConditions[state].sRepeatConvo != -1)
+            GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo, true);
+
     }
     void checkStateCondition(Actions action, InventoryItem item = InventoryItem.None)
     {
         if (state < maxstate)
+        {
             if (ChangeConditions[state].ConditionMet(action, item))
                 AdvanceState();
+        }
     }
     void AdvanceState()
     {
         ChangeConditions[state].InvokeChange(); // activate Event
         state++;
+        base.Interact(InventoryItem.None); // call advancestate
 
         Player.instance.LogState(UID, state); // log the current state for transitions
 

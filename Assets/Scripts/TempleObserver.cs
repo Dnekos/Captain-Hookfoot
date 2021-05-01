@@ -5,13 +5,15 @@ using UnityEngine;
 public class TempleObserver : BaseObserver
 {
     [SerializeField]
-    GameObject dialoguebubble;
+    GameObject dialoguebubble, murph;
     [SerializeField]
     Sprite newwell;
     public void GiveShovel(SpriteRenderer well)
     {
         GiveItem(InventoryItem.Shovel);
         well.sprite = newwell;
+        OpenDialogue(4);
+        murph.SetActive(true);
     }
     public void GiveKey()
     {
@@ -21,5 +23,12 @@ public class TempleObserver : BaseObserver
     public void IntroDialogue()
     {
         AddNode(dialoguebubble);
+    }
+    public void TalkToCrew(GameObject crew)
+    {
+        disableObject(crew);
+        OpenDialogue(12); // meet up with crew
+        RemoveItem(InventoryItem.Poe);
+        GiveItem(InventoryItem.Crew);
     }
 }

@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public enum Locations
 {
-    WellRoom,
+    WellRoom = 3,
     Island,
     ship,
-    lockedRoom
+    lockedRoom,
+    CageRoom
 }
 
 public class LocationNode : ClickableNode
@@ -21,6 +22,7 @@ public class LocationNode : ClickableNode
     override public void Interact(InventoryItem item)
     {
         SceneManager.LoadScene((int)Destination);
+        base.Interact(item);
     }
     public override void LookAt()
     {
