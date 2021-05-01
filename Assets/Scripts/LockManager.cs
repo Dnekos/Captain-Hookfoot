@@ -18,7 +18,7 @@ public class LockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!locks[0].isActiveAndEnabled || !locked)//.gameObject.activeInHierarchy)
+        if (!locks[0].isActiveAndEnabled || !locked)
             return; 
 
         for (int i  = 0;  i < 4; i++)
@@ -27,8 +27,10 @@ public class LockManager : MonoBehaviour
                 return;
         }
         Destroy(display_desk);
-        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it!";
-        for (int i = 0; i < 4; i++)
+        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it, its open!";
+        Player.PlayNoise(Sound.Drawer); // audio feedback
+
+        for (int i = 0; i < 4; i++) // disable buttons
             locks[i].GetComponent<Button>().enabled = false;
         locked = false;
     }

@@ -82,7 +82,10 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (EnlargeOnHover)
+        {
             transform.localScale *= sizedelta;
+            Player.PlayNoise(Sound.ButtonHover);
+        }
     }
     public void OnPointerExit(PointerEventData eventData)
     {

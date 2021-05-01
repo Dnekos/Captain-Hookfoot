@@ -12,12 +12,16 @@ public class CagedObserver : BaseObserver
     public void FreePoe(SpriteRenderer cage)
     {
         OpenDialogue(8);
-        //disableObject(anchor);
         cage.sprite = openCage;
         GiveItem(InventoryItem.Poe);
 
         Player.instance.CreateButNotModifyState(NodeIDs.Crew, 1);
         Player.instance.CreateButNotModifyState(NodeIDs.Murphy, 1);
-        //Player.instance.CreateButNotModifyState(NodeIDs.Anchor, 1);
+    }
+
+    public void MoveAnchor(GameObject obj)
+    {
+        disableObject(obj);
+        Player.PlayNoise(Sound.Anchor);
     }
 }

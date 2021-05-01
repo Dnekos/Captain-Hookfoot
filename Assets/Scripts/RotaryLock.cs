@@ -18,6 +18,8 @@ public class RotaryLock : MonoBehaviour
         {
             value = (value + 1) % 4;
             icon.sprite = textbox[value];
+            Player.PlayNoise(Sound.Rotary);
+
         }
     }
 

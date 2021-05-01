@@ -127,9 +127,9 @@ public class Player : MonoBehaviour
     }
 
     //sound stuff
-    public static void PlayNoise()
+    public static void PlayNoise(Sound sound)
     {
-        instance.GetComponentInChildren<SoundManager>().PlayButtonSFX();
+        instance.GetComponentInChildren<SoundManager>().PlaySoundSFX(sound);
     }
 
 
