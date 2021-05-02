@@ -52,6 +52,15 @@ public class DialogueManager : Databaser
         textIndex = 0;
         textTimer = 0;
         counting = true;
+
+        if (table.Count == 0)
+        {
+            PlayerBody.text = "";
+            CrewBody.text = "";
+            Player.instance.gameState = Player.GameState.PLAY;
+            gameObject.SetActive(false);
+            return;
+        }
     }
 
     public void NextLine()

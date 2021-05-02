@@ -496,7 +496,7 @@ MonoBehaviour:
     sRemoveItem: 0
     sRepeatOnSceneEnter: 1
     sHasNote: 0
-    sRepeatConvo: 0
+    sRepeatConvo: -1
     m_OnChange:
       m_PersistentCalls:
         m_Calls:

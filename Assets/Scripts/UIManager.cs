@@ -119,6 +119,8 @@ public class UIManager : MonoBehaviour
                 return;
             UsedDialogue.Add(TreeID);
         }
+        if (TreeID < 1)
+            return;
 
         Player.instance.gameState = Player.GameState.DIALOGUE;
         DialoguePanel.SetActive(true);
