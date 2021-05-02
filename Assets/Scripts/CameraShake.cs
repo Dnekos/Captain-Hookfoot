@@ -6,9 +6,6 @@ public class CameraShake : MonoBehaviour
 {
     //code snippets from https://medium.com/nice-things-ios-android-development/basic-2d-screen-shake-in-unity-9c27b56b516
 
-    // Transform of the GameObject you want to shake
-    private Transform transform;
-
     // Desired duration of the shake effect
     private float shakeDuration = 0f;
 
@@ -21,13 +18,6 @@ public class CameraShake : MonoBehaviour
     // The initial position of the GameObject
     Vector3 initialPosition;
 
-    void Awake()
-    {
-        if (transform == null)
-        {
-            transform = GetComponent(typeof(Transform)) as Transform;
-        }
-    }
     void Update()
     {
         if (shakeDuration > 0)

@@ -65,6 +65,7 @@ public class DialogueManager : Databaser
 
     public void NextLine()
     {
+        if (Player.instance.gameState == Player.GameState.DIALOGUE)
         if (counting)
         {
             counting = false;

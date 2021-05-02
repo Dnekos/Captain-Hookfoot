@@ -49,8 +49,11 @@ public class Player : MonoBehaviour
 
     static public void ClosePlayer()
     {
-        Destroy(instance.gameObject);
-        instance = null;
+        if (instance)
+        {
+            Destroy(instance.gameObject);
+            instance = null;
+        }
     }
     private void OnPause()
     {

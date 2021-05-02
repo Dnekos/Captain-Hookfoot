@@ -87,10 +87,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 2.199829
       objectReference: {fileID: 0}
-    - target: {fileID: 8995225846179219091, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 9.848145
-      objectReference: {fileID: 0}
     - target: {fileID: 8995225846305493670, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
@@ -178,30 +174,6 @@ PrefabInstance:
     - target: {fileID: 8995225846305493673, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.43250003
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.395
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.03166286
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995225846337595970, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.2000122
       objectReference: {fileID: 0}
     - target: {fileID: 8995225846575308765, guid: fb93103a8ab06aa41a82999e6bb4d97f, type: 3}
       propertyPath: m_SizeDelta.y

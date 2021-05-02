@@ -38,6 +38,8 @@ public class PauseManager : MonoBehaviour
     public void GoToScene(int index)
     {
         SceneManager.LoadScene(index);
+        if (index < 3)
+            Player.ClosePlayer();
     }
     // Update is called once per frame
     void Update()
