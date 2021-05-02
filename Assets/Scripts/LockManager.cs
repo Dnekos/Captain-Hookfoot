@@ -26,8 +26,13 @@ public class LockManager : MonoBehaviour
             if (locks[i].value != i)
                 return;
         }
+
+        //results for completion
         Destroy(display_desk);
-        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it!";
+        GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it! There's a magnifying glass in the desk!";
+        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(InventoryItem.MagnifyingGlass);
+
+        // locking the buttons
         for (int i = 0; i < 4; i++)
             locks[i].GetComponent<Button>().enabled = false;
         locked = false;
