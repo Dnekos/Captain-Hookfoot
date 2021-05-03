@@ -18,7 +18,7 @@ public class LockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!locks[0].isActiveAndEnabled || !locked)//.gameObject.activeInHierarchy)
+        if (!locks[0].isActiveAndEnabled || !locked)
             return; 
 
         for (int i  = 0;  i < 4; i++)
@@ -29,6 +29,8 @@ public class LockManager : MonoBehaviour
 
         // results for completion
         Destroy(display_desk);
+        SoundManager.PlaySound(Sound.Drawer); // audio feedback
+
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it! There's a magnifying glass in the desk!";
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(InventoryItem.MagnifyingGlass);
 

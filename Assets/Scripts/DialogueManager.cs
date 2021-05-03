@@ -116,6 +116,8 @@ public class DialogueManager : Databaser
             else
                 CrewBody.text += table[0].Body.ToString()[textIndex]; // add next letter
 
+            SoundManager.PlaySound(Sound.TextScroll); // sound effect
+
             textIndex++;
 
             textTimer = 0; // reset timer

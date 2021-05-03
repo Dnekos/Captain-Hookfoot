@@ -42,6 +42,7 @@ public class PickupNode : ClickableNode
         else
         {
             Player.instance.LogState(UID, 1); // log that item was picked up
+	        SoundManager.PlaySound(Sound.Pickup); // sound effect
             GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
             Destroy(gameObject);
         }
