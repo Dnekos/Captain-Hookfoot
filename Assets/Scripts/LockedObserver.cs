@@ -20,6 +20,7 @@ public class LockedObserver : BaseObserver
         background.sprite = newbackground;
         doortobasement.SetActive(true);
         LightBeam.SetActive(false);
+        SoundManager.PlaySound(Sound.Explosion);
     }
     public void GiveGlass()
     {

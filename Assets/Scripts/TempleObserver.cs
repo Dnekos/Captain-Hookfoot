@@ -31,4 +31,9 @@ public class TempleObserver : BaseObserver
         RemoveItem(InventoryItem.Poe);
         GiveItem(InventoryItem.Crew);
     }
+    public void OpenLock(GameObject padlock)
+    {
+        disableObject(padlock);
+        SoundManager.PlaySound(Sound.LockedInteract);
+    }
 }

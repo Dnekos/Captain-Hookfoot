@@ -425,8 +425,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1346431820}
-          m_TargetAssemblyTypeName: BaseObserver, Assembly-CSharp
-          m_MethodName: Destroy
+          m_TargetAssemblyTypeName: TempleObserver, Assembly-CSharp
+          m_MethodName: OpenLock
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 688356261}
@@ -1264,6 +1264,63 @@ MonoBehaviour:
   dialoguebubble: {fileID: 6912404932287229912, guid: ac8760188d2913746af42f01a38bbee3, type: 3}
   murph: {fileID: 870400443}
   newwell: {fileID: 21300000, guid: d986511a8a15d43428732b936a9fc6ca, type: 3}
+--- !u!1001 &1451723236
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.41380113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41457912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.4800632
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502776, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424283822373502783, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15a16f712a15b7040938bbb84f5f9991, type: 3}
 --- !u!1 &1465889408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1606,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -73
       objectReference: {fileID: 0}
+    - target: {fileID: 6741575784227589288, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6904717218690721488, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_SizeDelta.x
       value: 250
@@ -1637,6 +1698,10 @@ PrefabInstance:
       propertyPath: LevelMusic
       value: 
       objectReference: {fileID: 8300000, guid: 410bb80eddab0f144b2f74908739ddad, type: 3}
+    - target: {fileID: 8629546047491047647, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: ambientSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8784062991122087836, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -40,7 +40,7 @@ public class PickupNode : ClickableNode
         //base.Interact(item); // do dialogue
         Player.instance.LogState(UID, 1); // log that item was picked up
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
-        Player.PlayNoise(Sound.Pickup); // sound effect
+        SoundManager.PlaySound(Sound.Pickup); // sound effect
 
         Destroy(gameObject);
     }

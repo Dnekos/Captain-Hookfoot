@@ -22,6 +22,6 @@ public class CagedObserver : BaseObserver
     public void MoveAnchor(GameObject obj)
     {
         disableObject(obj);
-        Player.PlayNoise(Sound.Anchor);
+        SoundManager.PlaySound(Sound.Anchor);
     }
 }

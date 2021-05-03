@@ -126,13 +126,6 @@ public class Player : MonoBehaviour
         instance.heldItem = item;
     }
 
-    //sound stuff
-    public static void PlayNoise(Sound sound)
-    {
-        instance.GetComponentInChildren<SoundManager>().PlaySoundSFX(sound);
-    }
-
-
     //these two are needed for the inputs to work
     private void OnEnable()
     {

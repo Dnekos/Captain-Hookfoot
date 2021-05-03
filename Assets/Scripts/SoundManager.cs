@@ -9,15 +9,17 @@ public enum Sound // Sound enu names MUST MATCH file under Resourses/Sounds, use
     ButtonHover, // done on clickables
     TextScroll, // added to scroll
     Pickup, // added to pickup interact
-    LockedInteract,
+    LockedInteract, // added to unlocking the lock by well
     Drawer, // added to lock update
     Rotary, // added to rotor click
-    Explosion,
-    ItemCombining,
+    Explosion, // added to explosion event
+    ItemCombining, // added to combining code
     Anchor // added to event
 }
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
+
     [SerializeField]
     AudioSource sfxSource, musicSource, ambientSource;
 
@@ -35,19 +37,31 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        //        SceneManager.activeSceneChanged += ChangedActiveScene;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        if (this != instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        SceneManager.activeSceneChanged += instance.ChangedActiveScene;
     }
 
-    public void PlayPickupSFX()
+
+    public static void PlaySound(Sound sound)
     {
+        instance.PlaySoundSFX(sound);
+    }
+
+    private void PlaySoundSFX(Sound sound)
+    {
+        Debug.Log("playing Sounds/" + sound);
         //if (!Application.isEditor)
-        //sfxSource.PlayOneShot(PickupSFX);
-    }
-
-    public void PlaySoundSFX(Sound sound)
-    {
-        if (!Application.isEditor)
-            sfxSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/"+ Sound.ButtonHover));
+            sfxSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/"+ sound));
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
@@ -67,22 +81,26 @@ public class SoundManager : MonoBehaviour
                 break;
             case 4: // beach
             case 5: // ship
-                if (!(musicSource.isPlaying && musicSource.clip == MenuMusic))
+                if (!(musicSource.isPlaying && musicSource.clip == LevelMusic))
                 {
                     musicSource.clip = LevelMusic;
                     musicSource.Play();
-
+                }
+                if (!(ambientSource.isPlaying && ambientSource.clip == Exterior))
+                {
                     ambientSource.clip = Exterior;
                     ambientSource.Play();
-
                 }
                 break;
 
             default: // interior rooms
-                if (!(musicSource.isPlaying && musicSource.clip == MenuMusic))
+                if (!(musicSource.isPlaying && musicSource.clip == LevelMusic))
                 {
                     musicSource.clip = LevelMusic;
                     musicSource.Play();
+                }
+                if (!(ambientSource.isPlaying && ambientSource.clip == Cave))
+                {
                     ambientSource.clip = Cave;
                     ambientSource.Play();
                 }

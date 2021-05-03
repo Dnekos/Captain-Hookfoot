@@ -28,7 +28,7 @@ public class LockManager : MonoBehaviour
         }
         Destroy(display_desk);
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it, its open!";
-        Player.PlayNoise(Sound.Drawer); // audio feedback
+        SoundManager.PlaySound(Sound.Drawer); // audio feedback
 
         for (int i = 0; i < 4; i++) // disable buttons
             locks[i].GetComponent<Button>().enabled = false;
