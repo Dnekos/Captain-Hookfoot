@@ -37,10 +37,14 @@ public class PickupNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        //base.Interact(item); // do dialogue
-        Player.instance.LogState(UID, 1); // log that item was picked up
-        GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
-        Destroy(gameObject);
+        if (item != InventoryItem.None)
+            base.Interact(item); // do dialogue
+        else
+        {
+            Player.instance.LogState(UID, 1); // log that item was picked up
+            GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(data); // create UI object
+            Destroy(gameObject);
+        }
     }
     public override void LookAt()
     {

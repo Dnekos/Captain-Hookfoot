@@ -27,7 +27,7 @@ public class LockManager : MonoBehaviour
                 return;
         }
 
-        //results for completion
+        // results for completion
         Destroy(display_desk);
         GameObject.Find("debug").GetComponent<UnityEngine.UI.Text>().text = "I think I got it! There's a magnifying glass in the desk!";
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(InventoryItem.MagnifyingGlass);

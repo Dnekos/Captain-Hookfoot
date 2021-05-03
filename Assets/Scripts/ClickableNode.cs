@@ -56,11 +56,14 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     {
         DisplayThought(FetchTextByID((int)UID, "LookDialogue", "NodeDialogue", state));
     }
+
+    /// <param name="item">when None, gets AdvanceState, else gets the default use text for the item</param>
     public virtual void Interact(InventoryItem item)
     {
-        string thought = FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state);
-        //if (thought != null)
-        DisplayThought(thought);
+        if (item == InventoryItem.None)
+            DisplayThought(FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state));
+        else
+            DisplayThought(FetchTextByID((int)item, "DefaultUse", "InventoryDialogue"));
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -134,11 +134,11 @@ public class InteractableNode : ClickableNode
     override public void Interact(InventoryItem item)
     {
 
-        if (item == InventoryItem.None)
+        if (item == InventoryItem.None) 
             checkStateCondition(Actions.Interact);
         else
             checkStateCondition(Actions.UseItem, item);
-        if (state < maxstate && ChangeConditions[state].sRepeatConvo != -1)
+        if (state < maxstate && ChangeConditions[state].sRepeatConvo != -1 && item == InventoryItem.None)
             GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(ChangeConditions[state].sRepeatConvo, true);
 
     }
@@ -148,6 +148,8 @@ public class InteractableNode : ClickableNode
         {
             if (ChangeConditions[state].ConditionMet(action, item))
                 AdvanceState();
+            else if (item != InventoryItem.None)
+                base.Interact(item); // call default item use text
         }
     }
     void AdvanceState()
