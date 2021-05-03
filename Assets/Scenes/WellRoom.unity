@@ -1621,6 +1621,22 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8629546047491047647, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: Cave
+      value: 
+      objectReference: {fileID: 8300000, guid: 94cf68a40da72a847b45892d0508ff14, type: 3}
+    - target: {fileID: 8629546047491047647, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: Exterior
+      value: 
+      objectReference: {fileID: 8300000, guid: 54ea3f6a80cbd8a4d9610b7a1a77bc15, type: 3}
+    - target: {fileID: 8629546047491047647, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: MenuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: f011040dd760c0f4ea9a64cca77a9b2b, type: 3}
+    - target: {fileID: 8629546047491047647, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
+      propertyPath: LevelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 410bb80eddab0f144b2f74908739ddad, type: 3}
     - target: {fileID: 8784062991122087836, guid: 7631277d56f826e41a83ce59fdc700da, type: 3}
       propertyPath: m_Sprite
       value: 
