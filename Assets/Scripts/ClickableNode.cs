@@ -35,7 +35,8 @@ public enum NodeIDs
     CaptainsQuarters,
     HoleToCageRoom,
     Cage,
-    Murphy
+    Murphy,
+    Crew
 }
 
 public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -53,11 +54,16 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     
     public virtual void LookAt()
     {
-        DisplayThought(FetchTextByID((int)UID, "LookDialogue"));
+        DisplayThought(FetchTextByID((int)UID, "LookDialogue", "NodeDialogue", state));
     }
+
+    /// <param name="item">when None, gets AdvanceState, else gets the default use text for the item</param>
     public virtual void Interact(InventoryItem item)
     {
-        Debug.Log("clicked"); // get dialogue
+        if (item == InventoryItem.None)
+            DisplayThought(FetchTextByID((int)UID, "AdvanceStateDialogue", "NodeDialogue", state));
+        else
+            DisplayThought(FetchTextByID((int)item, "DefaultUse", "InventoryDialogue"));
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -79,7 +85,10 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (EnlargeOnHover)
+        {
             transform.localScale *= sizedelta;
+            SoundManager.PlaySound(Sound.ButtonHover);
+        }
     }
     public void OnPointerExit(PointerEventData eventData)
     {

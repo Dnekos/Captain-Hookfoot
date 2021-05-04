@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -26,14 +25,18 @@ public class PauseManager : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
+    public void ToggleCursor(bool enable)
+    {
+        if (enable)
+            Cursor.SetCursor(Resources.Load<Texture2D>("Inventory/cursor_gun"), Vector2.zero, CursorMode.Auto);
+        else
+            //Cursor.SetCursor(Resources.Load<Texture2D>("Inventory/prop_gun"), Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
     public void GoToScene(int index)
     {
-        SceneManager.LoadScene(index);
+        BlackoutScript.Transition(index);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Full screen set to " + !Screen.fullScreen);
-        //Screen.fullScreen = !Screen.fullScreen;
-    }
+
 }

@@ -10,6 +10,8 @@ public class LockedObserver : BaseObserver
     GameObject doorlock, doortobasement,LightBeam;
     [SerializeField]
     Sprite newbackground;
+    [SerializeField]
+    CameraShake cam;
     public void PlaceCandle()
     {
         candle.enabled = true;
@@ -20,6 +22,8 @@ public class LockedObserver : BaseObserver
         background.sprite = newbackground;
         doortobasement.SetActive(true);
         LightBeam.SetActive(false);
+        SoundManager.PlaySound(Sound.Explosion);
+        cam.TriggerShake();
     }
     public void GiveGlass()
     {

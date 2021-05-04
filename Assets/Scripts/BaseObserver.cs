@@ -16,6 +16,11 @@ public class BaseObserver : MonoBehaviour
     {
         obj.SetActive(false);
     }
+    public void enableObject(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
     protected void GiveItem(InventoryItem item)
     {
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().AddInventoryImage(item); // create UI object
@@ -27,5 +32,9 @@ public class BaseObserver : MonoBehaviour
     public void OpenDialogue(int index)
     {
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(index);
+    }
+    public void LoadScene(int index)
+    {
+        BlackoutScript.Transition(index); //load credits
     }
 }
