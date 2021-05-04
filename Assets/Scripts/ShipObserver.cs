@@ -16,7 +16,7 @@ public class ShipObserver : BaseObserver
         if (spoketoPete && Player.instance.gameState == Player.GameState.PLAY) // used crew on Pete AND finished the convo
         {
             Player.ClosePlayer(); // delete player UI
-            SceneManager.LoadScene(1); //load credits
+            LoadScene(1); //load credits
         }
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -37,14 +36,7 @@ public class PauseManager : MonoBehaviour
 
     public void GoToScene(int index)
     {
-        SceneManager.LoadScene(index);
-        if (index < 3)
-            Player.ClosePlayer();
+        BlackoutScript.Transition(index);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Full screen set to " + !Screen.fullScreen);
-        //Screen.fullScreen = !Screen.fullScreen;
-    }
+
 }

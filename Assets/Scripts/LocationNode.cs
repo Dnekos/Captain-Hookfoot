@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.SceneManagement;
 
 public enum Locations
 {
@@ -23,7 +22,7 @@ public class LocationNode : ClickableNode
     {
         base.Interact(item); // do dialogue
         if (item == InventoryItem.None)
-            SceneManager.LoadScene((int)Destination);
+        	BlackoutScript.Transition((int)Destination);
     }
     public override void LookAt()
     {

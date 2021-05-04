@@ -33,4 +33,8 @@ public class BaseObserver : MonoBehaviour
     {
         GameObject.Find("InventoryMenu").GetComponent<UIManager>().StartDialogue(index);
     }
+    public void LoadScene(int index)
+    {
+        BlackoutScript.Transition(index); //load credits
+    }
 }
