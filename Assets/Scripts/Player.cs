@@ -18,11 +18,16 @@ public class Player : MonoBehaviour
 
     Controls inputs;
 
+    // dialougebuffer
+    float buffertime = 0;
+    float max_buffer = 0.2f;
+    
     public enum GameState
     {
         PLAY,
         PAUSE,
-        DIALOGUE
+        DIALOGUE,
+        BUFFERMOUSE
     }
 
     public GameState gameState;
@@ -127,6 +132,21 @@ public class Player : MonoBehaviour
         if (item == InventoryItem.None)
             GameObject.Find("MouseInv").GetComponent<MouseFollow>().closeImage(); // set mouse Image
         instance.heldItem = item;
+    }
+
+    public void EndConversation() // sets gamestate back and gived buffertime for click
+    {
+        gameState = GameState.BUFFERMOUSE;
+        buffertime = max_buffer;
+    }
+    private void Update()
+    {
+        if (gameState == GameState.BUFFERMOUSE)
+        {
+            buffertime -= Time.deltaTime;
+            if (buffertime <= 0)
+                gameState = GameState.PLAY;
+        }
     }
 
     //these two are needed for the inputs to work

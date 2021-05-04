@@ -68,6 +68,9 @@ public class ClickableNode : Databaser, IPointerClickHandler, IPointerEnterHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (Player.instance.gameState != Player.GameState.PLAY) // prevent clicking when not in play
+            return;
+
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             LookAt(); // TEMP: right click looks

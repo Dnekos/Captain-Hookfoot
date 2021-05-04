@@ -82,7 +82,7 @@ public class DialogueManager : Databaser
         {
             PlayerBody.text = "";
             CrewBody.text = "";
-            Player.instance.gameState = Player.GameState.PLAY;
+            Player.instance.EndConversation();
             gameObject.SetActive(false);
             return;
         }
