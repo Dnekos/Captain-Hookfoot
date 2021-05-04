@@ -21,7 +21,7 @@ public class LocationNode : ClickableNode
 
     override public void Interact(InventoryItem item)
     {
-        SceneManager.LoadScene((int)Destination);
+        BlackoutScript.Transition((int)Destination);
     }
     public override void LookAt()
     {
